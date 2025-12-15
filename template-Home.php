@@ -10,7 +10,7 @@ get_header();
 
  <main id="main-content" class="flex-1">
                             <div class="overflow-hidden">
-                                <section class="relative h-screen flex items-center overflow-hidden">
+                                <!-- <section class="relative h-screen flex items-center overflow-hidden">
                                     <div class="absolute inset-0 z-0"><img
                                             src="https://images.unsplash.com/photo-1758387813664-5cd1211304f6?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBmYXNoaW9uJTIwY291cGxlJTIwZWxlZ2FudHxlbnwxfHx8fDE3NjI2MTYxODR8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1920"
                                             alt="Luxury Fashion for Men and Women" class="w-full h-full object-cover">
@@ -60,7 +60,89 @@ get_header();
                                         </div>
                                     </div>
 
-                                </section>
+                                </section> -->
+                                <?php
+$banner_image = get_field('banner-image');
+$banner_top_header   = get_field('banner_top-header');
+$banner_header       = get_field('banner_header');
+$banner_paragraph    = get_field('banner_paragraph');
+?>
+
+<section class="relative h-screen flex items-center overflow-hidden">
+
+    <!-- Background Image -->
+    <?php if ($banner_image) : ?>
+        <div class="absolute inset-0 z-0">
+            <img
+                src="<?php echo esc_url($banner_image['url']); ?>"
+                alt="<?php echo esc_attr($banner_image['alt']); ?>"
+                class="w-full h-full object-cover">
+
+            <div class="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/60 to-transparent"></div>
+        </div>
+    <?php endif; ?>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="max-w-3xl">
+
+            <!-- Top Header Badge -->
+            <?php if ($banner_top_header) : ?>
+                <div
+                    class="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-accent/30 backdrop-blur-sm border border-accent rounded-full">
+
+                    <!-- Static SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-sparkles w-4 h-4 text-white" aria-hidden="true">
+                        <path
+                            d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z">
+                        </path>
+                        <path d="M20 2v4"></path>
+                        <path d="M22 4h-4"></path>
+                        <circle cx="4" cy="20" r="2"></circle>
+                    </svg>
+
+                    <span class="text-white">
+                        <?php echo esc_html($banner_top_header); ?>
+                    </span>
+                </div>
+            <?php endif; ?>
+
+            <!-- Dynamic H1 Header -->
+            <?php if ($banner_header) : ?>
+                <h1 class="text-5xl md:text-7xl lg:text-8xl text-white mb-6 tracking-tight">
+                    <?php echo nl2br(esc_html($banner_header)); ?>
+                </h1>
+            <?php endif; ?>
+
+            <!-- Paragraph -->
+            <?php if ($banner_paragraph) : ?>
+                <p class="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl">
+                    <?php echo esc_html($banner_paragraph); ?>
+                </p>
+            <?php endif; ?>
+
+            <!-- Buttons (static for now) -->
+            <div class="flex flex-col sm:flex-row gap-4">
+                <button
+                    class="inline-flex items-center justify-center gap-2 rounded-full text-sm font-medium shadow-lg h-[52px] bg-accent text-white hover:bg-accent/90 transition-all px-8 py-6 group">
+                    Download App Now
+                </button>
+
+                <a href="/about">
+                    <button
+                        class="inline-flex items-center justify-center rounded-full text-sm font-medium border border-accent text-white h-[52px] px-8 py-6 hover:bg-accent transition-all">
+                        Discover Our Story
+                    </button>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
                                 <section class="py-12 bg-[#F3E6E2] border-y border-accent/20">
                                     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                                         <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
