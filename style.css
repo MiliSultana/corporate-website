@@ -1,0 +1,25 @@
+/*
+Theme Name:Corporate Website
+Version:6.9
+Author:Mili
+Description:corporate website for admin
+
+*/
+/* Default menu links */
+/* Default link */
+.nav .menu-item > a {
+    color: #ffffff;
+    transition: color 0.25s ease;
+}
+
+/* Hover state */
+.nav .menu-item > a:hover {
+    color: #ff6600;
+}
+
+/* Active/current page */
+.nav .menu-item.current-menu-item > a,
+.nav .menu-item.current_page_item > a {
+    color: #ff6600 !important;
+    font-weight: 500;
+}
