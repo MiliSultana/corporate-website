@@ -1,11 +1,11 @@
-  <!doctype html>
+<!doctype html>
 <html>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /> -->
     <link href="<?php echo get_template_directory_uri(); ?>/output.css" rel="stylesheet">
 </head>
 
@@ -18,10 +18,11 @@
                         <header class="sticky top-0 z-50 bg-primary border-b border-accent/20">
                             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                                 <div class="flex items-center justify-between h-16 lg:h-20">
-                                    <a class="flex items-center space-x-2" href="<?php echo site_url(); ?>" data-discover="true">
-                                        <?php $logoimg=get_header_image();?>
-                                    
-                                    <img src="<?php echo $logoimg; ?>" alt="" class="w-auto h-6 " />
+                                    <a class="flex items-center space-x-2" href="<?php echo site_url(); ?>"
+                                        data-discover="true">
+                                        <?php $logoimg = get_header_image(); ?>
+
+                                        <img src="<?php echo $logoimg; ?>" alt="" class="w-auto h-6 " />
                                     </a>
                                     <nav class="hidden md:flex items-center space-x-8 ">
                                         <!-- <a class="transition-colors hover:text-accent text-accent" href="index.html"
@@ -40,28 +41,28 @@
                                             data-discover="true">Contact</a><a
                                             class="transition-colors hover:text-accent text-white" href="/help.html"
                                             data-discover="true">Help</a> -->
-                                           <!-- <nav class="flex flex-col space-y-4"> -->
-                                                <?php
-                                                wp_nav_menu([
-                                                    'theme_location' => 'primary-menu',
-                                                    'menu_class'     => 'nav md:flex items-center space-x-8',
+                                        <!-- <nav class="flex flex-col space-y-4"> -->
+                                        <?php
+                                        wp_nav_menu([
+                                            'theme_location' => 'primary-menu',
+                                            'menu_class' => 'nav md:flex items-center space-x-8',
 
-                                                ]);
-                                                ?>
-                                                
-                                    </nav> 
+                                        ]);
+                                        ?>
+
+                                    </nav>
                                     <div class="hidden md:flex items-center gap-3">
                                         <a href="https://play.google.com/store/apps/details?id=com.sevora">
-                                        <button data-slot="dropdown-menu-trigger"
-                                            class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-all duration-200 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-5 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:scale-105 hover:shadow-lg active:scale-100 shadow-[0_8px_24px_rgba(0,0,0,0.12)] h-[52px] px-8 py-3.5 bg-accent text-white hover:bg-accent/90"
-                                            type="button" id="radix-:r0:" aria-haspopup="menu" aria-expanded="false"
-                                            data-state="closed"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                class="lucide lucide-smartphone w-4 h-4 mr-2" aria-hidden="true">
-                                                <rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect>
-                                                <path d="M12 18h.01"></path>
-                                            </svg>Download App</button></a>
+                                            <button data-slot="dropdown-menu-trigger"
+                                                class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-all duration-200 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-5 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:scale-105 hover:shadow-lg active:scale-100 shadow-[0_8px_24px_rgba(0,0,0,0.12)] h-[52px] px-8 py-3.5 bg-accent text-white hover:bg-accent/90"
+                                                type="button" id="radix-:r0:" aria-haspopup="menu" aria-expanded="false"
+                                                data-state="closed"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="lucide lucide-smartphone w-4 h-4 mr-2" aria-hidden="true">
+                                                    <rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect>
+                                                    <path d="M12 18h.01"></path>
+                                                </svg>Download App</button></a>
                                     </div>
                                     <button id="desktopIcon" class="md:hidden p-2 text-white">
                                         <i class='bx  bx-menu text-3xl'></i>

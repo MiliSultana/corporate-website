@@ -116,7 +116,6 @@ function sevora_register_footer_widgets() {
         ]);
     }
 
-    // Social Icons
     register_sidebar([
         'name' => 'Footer Social Icons',
         'id' => 'footer-social',
@@ -124,7 +123,6 @@ function sevora_register_footer_widgets() {
         'after_widget'  => '</div>',
     ]);
 
-    // Copyright
     register_sidebar([
         'name' => 'Footer Copyright',
         'id' => 'footer-copy',
@@ -133,3 +131,33 @@ function sevora_register_footer_widgets() {
     ]);
 }
 add_action('widgets_init', 'sevora_register_footer_widgets');
+
+function sevora_enqueue_assets() {
+    wp_enqueue_script('jquery');
+
+    wp_enqueue_script(
+        'swiper-js',
+        'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js',
+        [],
+        null,
+        true
+    );
+    
+    wp_enqueue_style(
+        'swiper-css',
+        'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css',
+        [],
+        null
+    );
+
+    // Custom JS
+    wp_enqueue_script(
+        'custom-js',
+        get_template_directory_uri() . '/assets/js/custom.js',
+        ['jquery'],
+        null,
+        true
+    );
+}
+add_action('wp_enqueue_scripts', 'sevora_enqueue_assets');
+

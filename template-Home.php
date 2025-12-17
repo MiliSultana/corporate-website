@@ -1,4 +1,4 @@
-<?php 
+<?php
 // Template Name:Home
 
 get_header();
@@ -8,9 +8,9 @@ get_header();
 
 
 
- <main id="main-content" class="flex-1">
-                            <div class="overflow-hidden">
-                                <!-- <section class="relative h-screen flex items-center overflow-hidden">
+<main id="main-content" class="flex-1">
+    <div class="overflow-hidden">
+        <!-- <section class="relative h-screen flex items-center overflow-hidden">
                                     <div class="absolute inset-0 z-0"><img
                                             src="https://images.unsplash.com/photo-1758387813664-5cd1211304f6?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBmYXNoaW9uJTIwY291cGxlJTIwZWxlZ2FudHxlbnwxfHx8fDE3NjI2MTYxODR8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1920"
                                             alt="Luxury Fashion for Men and Women" class="w-full h-full object-cover">
@@ -61,89 +61,86 @@ get_header();
                                     </div>
 
                                 </section> -->
-                                <?php
-$banner_image = get_field('banner-image');
-$banner_top_header   = get_field('banner_top-header');
-$banner_header       = get_field('banner_header');
-$banner_paragraph    = get_field('banner_paragraph');
-?>
+        <?php
+        $banner_image = get_field('banner-image');
+        $banner_top_header = get_field('banner_top-header');
+        $banner_header = get_field('banner_header');
+        $banner_paragraph = get_field('banner_paragraph');
+        ?>
 
-<section class="relative h-screen flex items-center overflow-hidden">
+        <section class="relative h-screen flex items-center overflow-hidden">
 
-    <!-- Background Image -->
-    <?php if ($banner_image) : ?>
-        <div class="absolute inset-0 z-0">
-            <img
-                src="<?php echo esc_url($banner_image['url']); ?>"
-                alt="<?php echo esc_attr($banner_image['alt']); ?>"
-                class="w-full h-full object-cover">
+            <!-- Background Image -->
+            <?php if ($banner_image): ?>
+                <div class="absolute inset-0 z-0">
+                    <img src="<?php echo esc_url($banner_image['url']); ?>"
+                        alt="<?php echo esc_attr($banner_image['alt']); ?>" class="w-full h-full object-cover">
 
-            <div class="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/60 to-transparent"></div>
-        </div>
-    <?php endif; ?>
-
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div class="max-w-3xl">
-
-            <!-- Top Header Badge -->
-            <?php if ($banner_top_header) : ?>
-                <div
-                    class="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-accent/30 backdrop-blur-sm border border-accent rounded-full">
-
-                    <!-- Static SVG -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="lucide lucide-sparkles w-4 h-4 text-white" aria-hidden="true">
-                        <path
-                            d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z">
-                        </path>
-                        <path d="M20 2v4"></path>
-                        <path d="M22 4h-4"></path>
-                        <circle cx="4" cy="20" r="2"></circle>
-                    </svg>
-
-                    <span class="text-white">
-                        <?php echo esc_html($banner_top_header); ?>
-                    </span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/60 to-transparent"></div>
                 </div>
             <?php endif; ?>
 
-            <!-- Dynamic H1 Header -->
-            <?php if ($banner_header) : ?>
-                <h1 class="text-5xl md:text-7xl lg:text-8xl text-white mb-6 tracking-tight">
-                    <?php echo nl2br(esc_html($banner_header)); ?>
-                </h1>
-            <?php endif; ?>
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                <div class="max-w-3xl">
 
-            <!-- Paragraph -->
-            <?php if ($banner_paragraph) : ?>
-                <p class="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl">
-                    <?php echo esc_html($banner_paragraph); ?>
-                </p>
-            <?php endif; ?>
+                    <!-- Top Header Badge -->
+                    <?php if ($banner_top_header): ?>
+                        <div
+                            class="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-accent/30 backdrop-blur-sm border border-accent rounded-full">
 
-            <!-- Buttons (static for now) -->
-            <div class="flex flex-col sm:flex-row gap-4">
-                <button
-                    class="inline-flex items-center justify-center gap-2 rounded-full text-sm font-medium shadow-lg h-[52px] bg-accent text-white hover:bg-accent/90 transition-all px-8 py-6 group">
-                    Download App Now
-                </button>
+                            <!-- Static SVG -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-sparkles w-4 h-4 text-white" aria-hidden="true">
+                                <path
+                                    d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z">
+                                </path>
+                                <path d="M20 2v4"></path>
+                                <path d="M22 4h-4"></path>
+                                <circle cx="4" cy="20" r="2"></circle>
+                            </svg>
 
-                <a href="/about">
-                    <button
-                        class="inline-flex items-center justify-center rounded-full text-sm font-medium border border-accent text-white h-[52px] px-8 py-6 hover:bg-accent transition-all">
-                        Discover Our Story
-                    </button>
-                </a>
+                            <span class="text-white">
+                                <?php echo esc_html($banner_top_header); ?>
+                            </span>
+                        </div>
+                    <?php endif; ?>
+
+                    <!-- Dynamic H1 Header -->
+                    <?php if ($banner_header): ?>
+                        <h1 class="text-5xl md:text-7xl lg:text-8xl text-white mb-6 tracking-tight">
+                            <?php echo nl2br(esc_html($banner_header)); ?>
+                        </h1>
+                    <?php endif; ?>
+
+                    <!-- Paragraph -->
+                    <?php if ($banner_paragraph): ?>
+                        <p class="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl">
+                            <?php echo esc_html($banner_paragraph); ?>
+                        </p>
+                    <?php endif; ?>
+
+                    <!-- Buttons (static for now) -->
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button
+                            class="inline-flex items-center justify-center gap-2 rounded-full text-sm font-medium shadow-lg h-[52px] bg-accent text-white hover:bg-accent/90 transition-all px-8 py-6 group">
+                            Download App Now
+                        </button>
+
+                        <a href="/about">
+                            <button
+                                class="inline-flex items-center justify-center rounded-full text-sm font-medium border border-accent text-white h-[52px] px-8 py-6 hover:bg-accent transition-all">
+                                Discover Our Story
+                            </button>
+                        </a>
+                    </div>
+
+                </div>
             </div>
 
-        </div>
-    </div>
+        </section>
 
-</section>
-
-                                <!-- <section class="py-12 bg-[#F3E6E2] border-y border-accent/20">
+        <!-- <section class="py-12 bg-[#F3E6E2] border-y border-accent/20">
                                     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                                         <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
                                             <div class="">
@@ -233,45 +230,45 @@ $banner_paragraph    = get_field('banner_paragraph');
                                     </div>
                                 </section> -->
 
-                                <section class="py-12 bg-[#F3E6E2] border-y border-accent/20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <section class="py-12 bg-[#F3E6E2] border-y border-accent/20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
 
-            <?php if (have_rows('stats')) : ?>
-                <?php while (have_rows('stats')) : the_row(); ?>
+                    <?php if (have_rows('stats')): ?>
+                        <?php while (have_rows('stats')):
+                            the_row(); ?>
 
-                    <div>
-                        <div class="text-center group cursor-pointer">
+                            <div>
+                                <div class="text-center group cursor-pointer">
 
-                            <div
-                                class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-accent to-[#C8915D]
+                                    <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-accent to-[#C8915D]
                                 rounded-full flex items-center justify-center text-white
                                 group-hover:scale-110 transition-all duration-200
                                 shadow-[0_12px_24px_rgba(226,164,95,0.2)]">
 
-                                <?php echo get_sub_field('icon_svg'); ?>
+                                        <?php echo get_sub_field('icon_svg'); ?>
 
+                                    </div>
+
+                                    <div class="text-3xl md:text-4xl text-accent mb-2 font-bold">
+                                        <?php echo esc_html(get_sub_field('number')); ?>
+                                    </div>
+
+                                    <div class="text-muted-foreground">
+                                        <?php echo esc_html(get_sub_field('title')); ?>
+                                    </div>
+
+                                </div>
                             </div>
 
-                            <div class="text-3xl md:text-4xl text-accent mb-2 font-bold">
-                                <?php echo esc_html(get_sub_field('number')); ?>
-                            </div>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
 
-                            <div class="text-muted-foreground">
-                                <?php echo esc_html(get_sub_field('title')); ?>
-                            </div>
+                </div>
+            </div>
+        </section>
 
-                        </div>
-                    </div>
-
-                <?php endwhile; ?>
-            <?php endif; ?>
-
-        </div>
-    </div>
-</section>
-
-                                <!-- <section
+        <!-- <section
                                     class="py-16 lg:py-24 bg-gradient-to-br from-[#E2A45F]/20 via-white to-[#E57F6D]/15 relative overflow-hidden">
                                     <div class="absolute inset-0 overflow-hidden">
                                         <div
@@ -552,157 +549,166 @@ $banner_paragraph    = get_field('banner_paragraph');
                                         </div>
                                     </div>
                                 </section> -->
-                                <section class="py-16 lg:py-24 bg-gradient-to-br from-[#E2A45F]/20 via-white to-[#E57F6D]/15 relative overflow-hidden">
+        <section
+            class="py-16 lg:py-24 bg-gradient-to-br from-[#E2A45F]/20 via-white to-[#E57F6D]/15 relative overflow-hidden">
 
-    <!-- Background blobs -->
-    <div class="absolute inset-0 overflow-hidden">
-        <div class="absolute top-20 left-20 w-80 h-80 bg-gradient-to-br from-accent/10 to-[#E57F6D]/10 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-32 right-32 w-96 h-96 bg-gradient-to-br from-[#E57F6D]/10 to-accent/10 rounded-full blur-3xl"></div>
-        <div class="absolute top-1/2 right-1/4 w-64 h-64 bg-white/30 rounded-full blur-2xl"></div>
-    </div>
+            <!-- Background blobs -->
+            <div class="absolute inset-0 overflow-hidden">
+                <div
+                    class="absolute top-20 left-20 w-80 h-80 bg-gradient-to-br from-accent/10 to-[#E57F6D]/10 rounded-full blur-3xl">
+                </div>
+                <div
+                    class="absolute bottom-32 right-32 w-96 h-96 bg-gradient-to-br from-[#E57F6D]/10 to-accent/10 rounded-full blur-3xl">
+                </div>
+                <div class="absolute top-1/2 right-1/4 w-64 h-64 bg-white/30 rounded-full blur-2xl"></div>
+            </div>
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <!-- Section Header -->
-        <div class="text-center mb-16">
+                <!-- Section Header -->
+                <div class="text-center mb-16">
 
-            <?php if (get_field('section_badge')) : ?>
-                <div class="inline-flex items-center gap-2 mb-6 px-6 py-3
+                    <?php if (get_field('section_badge')): ?>
+                        <div class="inline-flex items-center gap-2 mb-6 px-6 py-3
                     bg-gradient-to-r from-accent/10 via-accent/15 to-accent/10
                     border border-accent/30 rounded-full backdrop-blur-sm
                     shadow-[0_4px_20px_rgba(226,164,95,0.15)]">
 
-                    <?php if ($icon1 = get_field('icon_svg1')) : ?>
-                        <span class="text-accent w-4 h-4"><?php echo $icon1; ?></span>
+                            <?php if ($icon1 = get_field('icon_svg1')): ?>
+                                <span class="text-accent w-4 h-4"><?php echo $icon1; ?></span>
+                            <?php endif; ?>
+
+                            <span class="text-accent uppercase tracking-wider text-sm font-semibold">
+                                <?php the_field('section_badge'); ?>
+                            </span>
+
+                            <?php if ($icon2 = get_field('icon_svg2')): ?>
+                                <span class="text-accent w-4 h-4"><?php echo $icon2; ?></span>
+                            <?php endif; ?>
+                        </div>
                     <?php endif; ?>
 
-                    <span class="text-accent uppercase tracking-wider text-sm font-semibold">
-                        <?php the_field('section_badge'); ?>
-                    </span>
+                    <h2
+                        class="text-4xl md:text-6xl mb-6 bg-gradient-to-br from-primary via-primary to-primary/80 bg-clip-text text-transparent">
+                        <?php the_field('section_heading'); ?>
+                    </h2>
 
-                    <?php if ($icon2 = get_field('icon_svg2')) : ?>
-                        <span class="text-accent w-4 h-4"><?php echo $icon2; ?></span>
-                    <?php endif; ?>
+                    <p class="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+                        <?php the_field('section_description'); ?>
+                    </p>
                 </div>
-            <?php endif; ?>
 
-            <h2 class="text-4xl md:text-6xl mb-6 bg-gradient-to-br from-primary via-primary to-primary/80 bg-clip-text text-transparent">
-                <?php the_field('section_heading'); ?>
-            </h2>
+                <!-- Services Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
 
-            <p class="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-                <?php the_field('section_description'); ?>
-            </p>
-        </div>
+                    <?php if (have_rows('services')): ?>
+                        <?php while (have_rows('services')):
+                            the_row(); ?>
 
-        <!-- Services Grid -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-
-            <?php if (have_rows('services')) : ?>
-                <?php while (have_rows('services')) : the_row(); ?>
-
-                    <div class="relative bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-accent/20
+                            <div class="relative bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-accent/20
                                 hover:border-accent/60 hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)]
                                 transition-all duration-300 group h-full">
 
-                        <!-- Hover overlays -->
-                        <div class="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-[#E57F6D]/5
-                                    rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                <!-- Hover overlays -->
+                                <div class="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-[#E57F6D]/5
+                                    rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                </div>
 
-                        <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-accent/10 to-transparent
-                                    rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-accent/10 to-transparent
+                                    rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                </div>
 
-                        <?php if (get_sub_field('badge')) : ?>
-                            <div class="absolute top-5 right-5 z-10">
-                                <span class="px-3 py-1.5 bg-gradient-to-r from-accent to-[#C8915D]
+                                <?php if (get_sub_field('badge')): ?>
+                                    <div class="absolute top-5 right-5 z-10">
+                                        <span
+                                            class="px-3 py-1.5 bg-gradient-to-r from-accent to-[#C8915D]
                                              text-white text-xs rounded-full font-semibold uppercase tracking-wider shadow-lg">
-                                    <?php the_sub_field('badge'); ?>
-                                </span>
-                            </div>
-                        <?php endif; ?>
+                                            <?php the_sub_field('badge'); ?>
+                                        </span>
+                                    </div>
+                                <?php endif; ?>
 
-                        <div class="relative z-10">
+                                <div class="relative z-10">
 
-                            <div class="w-16 h-16 bg-gradient-to-br from-accent via-accent to-[#C8915D]
+                                    <div class="w-16 h-16 bg-gradient-to-br from-accent via-accent to-[#C8915D]
                                         rounded-2xl flex items-center justify-center mb-6 text-white
                                         group-hover:scale-110 group-hover:rotate-3 transition-all duration-300
                                         shadow-[0_12px_32px_rgba(226,164,95,0.3)]">
-                                <?php echo get_sub_field('icon_svg'); ?>
-                            </div>
+                                        <?php echo get_sub_field('icon_svg'); ?>
+                                    </div>
 
-                            <h3 class="text-xl mb-3 font-semibold text-primary
+                                    <h3 class="text-xl mb-3 font-semibold text-primary
                                        group-hover:text-accent transition-colors duration-300">
-                                <?php the_sub_field('title'); ?>
-                            </h3>
+                                        <?php the_sub_field('title'); ?>
+                                    </h3>
 
-                            <p class="text-muted-foreground text-sm mb-4 leading-relaxed">
-                                <?php the_sub_field('description'); ?>
-                            </p>
+                                    <p class="text-muted-foreground text-sm mb-4 leading-relaxed">
+                                        <?php the_sub_field('description'); ?>
+                                    </p>
 
-                            <?php if (get_sub_field('link')) : ?>
-                                <a href="<?php echo esc_url(get_sub_field('link')); ?>"
-                                   class="flex items-center gap-2 text-accent
+                                    <?php if (get_sub_field('link')): ?>
+                                        <a href="<?php echo esc_url(get_sub_field('link')); ?>" class="flex items-center gap-2 text-accent
                                           opacity-0 group-hover:opacity-100
                                           transition-all duration-300">
 
-                                    <span class="text-sm font-medium">
-                                        <?php echo esc_html(get_sub_field('link_text') ?: 'Learn more'); ?>
-                                    </span>
+                                            <span class="text-sm font-medium">
+                                                <?php echo esc_html(get_sub_field('link_text') ?: 'Learn more'); ?>
+                                            </span>
 
-                                    <?php if ($arrow = get_sub_field('arrow_icon')) : ?>
-                                        <span class="transition-transform duration-300 group-hover:translate-x-2
+                                            <?php if ($arrow = get_sub_field('arrow_icon')): ?>
+                                                <span class="transition-transform duration-300 group-hover:translate-x-2
                                                      [&_svg]:w-5 [&_svg]:h-5 [&_svg]:stroke-current">
-                                            <?php echo $arrow; ?>
-                                        </span>
+                                                    <?php echo $arrow; ?>
+                                                </span>
+                                            <?php endif; ?>
+                                        </a>
                                     <?php endif; ?>
-                                </a>
-                            <?php endif; ?>
 
-                        </div>
+                                </div>
 
-                        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r
+                                <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r
                                     from-transparent via-accent to-transparent
                                     opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-b-2xl">
-                        </div>
-                    </div>
+                                </div>
+                            </div>
 
-                <?php endwhile; ?>
-            <?php endif; ?>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
 
-        </div>
+                </div>
 
-        <!-- CTA -->
-        <div class="text-center">
-            <a href="<?php the_field('cta_url'); ?>"
-               class="inline-flex items-center gap-3 px-10 py-4 rounded-full
+                <!-- CTA -->
+                <div class="text-center">
+                    <a href="<?php the_field('cta_url'); ?>" class="inline-flex items-center gap-3 px-10 py-4 rounded-full
                       bg-gradient-to-r from-accent via-accent to-[#C8915D]
                       text-white shadow-[0_8px_24px_rgba(0,0,0,0.12)]
                       hover:scale-105 transition-all duration-500 group relative overflow-hidden">
 
-                <span class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent
+                        <span
+                            class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent
                              translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></span>
 
-                <span class="relative flex items-center gap-3">
-                    <?php the_field('cta_text'); ?>
+                        <span class="relative flex items-center gap-3">
+                            <?php the_field('cta_text'); ?>
 
-                    <?php if ($arrow = get_field('arrow-icon')) : ?>
-                        <span class="transition-transform duration-300 group-hover:translate-x-2">
-                            <?php echo $arrow; ?>
+                            <?php if ($arrow = get_field('arrow-icon')): ?>
+                                <span class="transition-transform duration-300 group-hover:translate-x-2">
+                                    <?php echo $arrow; ?>
+                                </span>
+                            <?php endif; ?>
                         </span>
-                    <?php endif; ?>
-                </span>
-            </a>
+                    </a>
 
-            <p class="mt-4 text-sm text-muted-foreground">
-                <?php the_field('footer_note'); ?>
-            </p>
-        </div>
+                    <p class="mt-4 text-sm text-muted-foreground">
+                        <?php the_field('footer_note'); ?>
+                    </p>
+                </div>
 
-    </div>
-</section>
+            </div>
+        </section>
 
 
-                                <!-- <section
+        <!-- <section
                                     class="py-16 lg:py-24 bg-gradient-to-br from-[#E57F6D]/25 via-[#F3E6E2]/60 to-white relative overflow-hidden">
                                     <div class="absolute inset-0 opacity-10">
                                         <div class="absolute inset-0">
@@ -781,80 +787,80 @@ $banner_paragraph    = get_field('banner_paragraph');
                                         </div>
                                     </div>
                                 </section> -->
-                                <section class="py-16 lg:py-24 bg-gradient-to-br from-[#E57F6D]/25 via-[#F3E6E2]/60 to-white relative overflow-hidden">
+        <section
+            class="py-16 lg:py-24 bg-gradient-to-br from-[#E57F6D]/25 via-[#F3E6E2]/60 to-white relative overflow-hidden">
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div class="text-center mb-12">
-            <h2 class="text-4xl md:text-5xl mb-4">
-                <?php the_field('designer_section_heading'); ?>
-            </h2>
-            <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                <?php the_field('designer_section_description'); ?>
-            </p>
-        </div>
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl md:text-5xl mb-4">
+                        <?php the_field('designer_section_heading'); ?>
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        <?php the_field('designer_section_description'); ?>
+                    </p>
+                </div>
 
-        <div class="grid md:grid-cols-3 gap-6">
+                <div class="grid md:grid-cols-3 gap-6">
 
-            <?php if (have_rows('collections')) : ?>
-                <?php while (have_rows('collections')) : the_row(); ?>
+                    <?php if (have_rows('collections')): ?>
+                        <?php while (have_rows('collections')):
+                            the_row(); ?>
 
-                    <div class="group cursor-pointer">
-                        <div class="relative h-96 rounded-lg overflow-hidden mb-4 shadow-lg">
+                            <div class="group cursor-pointer">
+                                <div class="relative h-96 rounded-lg overflow-hidden mb-4 shadow-lg">
 
-                            <?php
-                            $image = get_sub_field('image');
-                            if ($image) :
-                            ?>
-                                <img
-                                    src="<?php echo esc_url($image['url']); ?>"
-                                    alt="<?php echo esc_attr($image['alt'] ?: get_sub_field('title')); ?>"
-                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                                >
-                            <?php endif; ?>
+                                    <?php
+                                    $image = get_sub_field('image');
+                                    if ($image):
+                                        ?>
+                                        <img src="<?php echo esc_url($image['url']); ?>"
+                                            alt="<?php echo esc_attr($image['alt'] ?: get_sub_field('title')); ?>"
+                                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                    <?php endif; ?>
 
-                            <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/40 to-transparent
+                                    <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/40 to-transparent
                                         opacity-60 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                            <div class="absolute bottom-0 left-0 right-0 p-6 text-white
+                                    <div
+                                        class="absolute bottom-0 left-0 right-0 p-6 text-white
                                         transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
 
-                                <h3 class="text-2xl mb-2">
-                                    <?php the_sub_field('title'); ?>
-                                </h3>
+                                        <h3 class="text-2xl mb-2">
+                                            <?php the_sub_field('title'); ?>
+                                        </h3>
 
-                                <p class="text-white/90 mb-4">
-                                    <?php the_sub_field('description'); ?>
-                                </p>
+                                        <p class="text-white/90 mb-4">
+                                            <?php the_sub_field('description'); ?>
+                                        </p>
 
-                                <?php if ($link = get_sub_field('button_link')) : ?>
-                                    <a href="<?php echo esc_url($link); ?>">
-                                        <button
-                                            class="inline-flex items-center justify-center gap-2 whitespace-nowrap
+                                        <?php if ($link = get_sub_field('button_link')): ?>
+                                            <a href="<?php echo esc_url($link); ?>">
+                                                <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap
                                                    rounded-full text-sm font-medium shadow-[0_8px_24px_rgba(0,0,0,0.12)]
                                                    h-[52px] px-8 py-3.5 bg-accent text-white
                                                    hover:bg-accent/90 hover:scale-105 hover:shadow-lg
                                                    transition-all duration-300 w-full">
 
-                                            <?php echo esc_html(get_sub_field('button_text') ?: 'View in App'); ?>
+                                                    <?php echo esc_html(get_sub_field('button_text') ?: 'View in App'); ?>
 
-                                        </button>
-                                    </a>
-                                <?php endif; ?>
+                                                </button>
+                                            </a>
+                                        <?php endif; ?>
 
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
 
-                <?php endwhile; ?>
-            <?php endif; ?>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
 
-        </div>
-    </div>
-</section>
+                </div>
+            </div>
+        </section>
 
 
-                                <!-- <section
+        <!-- <section
                                     class="py-16 lg:py-24 bg-gradient-to-br from-[#4A1C2B]/12 via-[#F3E6E2]/80 to-[#4A1C2B]/8 relative overflow-hidden">
                                     <div class="absolute inset-0 opacity-[0.02]">
                                         <div class="absolute inset-0">
@@ -954,38 +960,45 @@ $banner_paragraph    = get_field('banner_paragraph');
                                     </div>
                                 </section> -->
 
-                                <section class="py-16 lg:py-24 bg-gradient-to-br from-[#4A1C2B]/12 via-[#F3E6E2]/80 to-[#4A1C2B]/8 relative overflow-hidden">
-    <div class="absolute inset-0 opacity-[0.02]">
-        <div class="absolute inset-0"></div>
-    </div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-            <h2 class="text-4xl md:text-5xl mb-4"><?php the_field('promise_section_heading'); ?></h2>
-            <p class="text-lg text-muted-foreground max-w-2xl mx-auto"><?php the_field('promise_section_description'); ?></p>
-        </div>
+        <section
+            class="py-16 lg:py-24 bg-gradient-to-br from-[#4A1C2B]/12 via-[#F3E6E2]/80 to-[#4A1C2B]/8 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-[0.02]">
+                <div class="absolute inset-0"></div>
+            </div>
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl md:text-5xl mb-4"><?php the_field('promise_section_heading'); ?></h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        <?php the_field('promise_section_description'); ?>
+                    </p>
+                </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <?php if (have_rows('sevora_promises')) : ?>
-                <?php while (have_rows('sevora_promises')) : the_row(); ?>
-                    <div>
-                        <div class="bg-secondary p-6 rounded-xl border border-accent/20 hover:border-accent hover:shadow-[0_16px_32px_rgba(0,0,0,0.1)] transition-all group h-full">
-                            <div class="w-14 h-14 bg-gradient-to-br from-accent to-[#C8915D] rounded-full flex items-center justify-center mb-4 text-white group-hover:scale-110 transition-all duration-200 shadow-[0_12px_24px_rgba(226,164,95,0.25)]">
-                                <?php echo get_sub_field('icon_svg'); ?>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <?php if (have_rows('sevora_promises')): ?>
+                        <?php while (have_rows('sevora_promises')):
+                            the_row(); ?>
+                            <div>
+                                <div
+                                    class="bg-secondary p-6 rounded-xl border border-accent/20 hover:border-accent hover:shadow-[0_16px_32px_rgba(0,0,0,0.1)] transition-all group h-full">
+                                    <div
+                                        class="w-14 h-14 bg-gradient-to-br from-accent to-[#C8915D] rounded-full flex items-center justify-center mb-4 text-white group-hover:scale-110 transition-all duration-200 shadow-[0_12px_24px_rgba(226,164,95,0.25)]">
+                                        <?php echo get_sub_field('icon_svg'); ?>
+                                    </div>
+                                    <h3 class="text-lg mb-2 font-semibold"><?php the_sub_field('promise_title'); ?></h3>
+                                    <p class="text-muted-foreground text-sm leading-relaxed">
+                                        <?php the_sub_field('promise_description'); ?>
+                                    </p>
+                                </div>
                             </div>
-                            <h3 class="text-lg mb-2 font-semibold"><?php the_sub_field('promise_title'); ?></h3>
-                            <p class="text-muted-foreground text-sm leading-relaxed"><?php the_sub_field('promise_description'); ?></p>
-                        </div>
-                    </div>
-                <?php endwhile; ?>
-            <?php endif; ?>
-        </div>
-    </div>
-</section>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </section>
 
-                                <section
-                                    class="py-16 lg:py-24 bg-gradient-to-br from-[#E2A45F]/25 via-[#E2A45F]/10 to-white overflow-hidden">
-                                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                                        <div class="text-center mb-8">
+        <section class="py-16 lg:py-24 bg-gradient-to-br from-[#E2A45F]/25 via-[#E2A45F]/10 to-white overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- <div class="text-center mb-8">
                                             <div
                                                 class="inline-flex items-center gap-2 mb-3 px-4 py-2 bg-accent/10 border border-accent/30 rounded-full">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -1006,8 +1019,47 @@ $banner_paragraph    = get_field('banner_paragraph');
                                             <h2 class="text-2xl md:text-3xl text-primary mb-2">Shop 100+ Premium
                                                 Designer Brands</h2>
                                             <p class="text-muted-foreground">Available exclusively on the SEVORA app</p>
-                                        </div>
-                                        <div class="relative swiper mySwiper">
+                                        </div> -->
+                <?php
+                // ACF fields for the top badge
+                $badge_icon = get_field('premium_badge_icon'); // SVG or HTML
+                $badge_label = get_field('premium_badge_label'); // e.g., "Premium Partners"
+                
+                // ACF fields for heading and description
+                $section_title = get_field('premium_section_title'); // e.g., "Shop 100+ Premium Designer Brands"
+                $section_desc = get_field('premium_section_description'); // e.g., "Available exclusively on the SEVORA app"
+                
+                // ACF repeater for stats (3 items)
+                $stats = get_field('premium_stats');
+                ?>
+
+                <div class="text-center mb-8">
+
+                    <!-- Badge -->
+                    <?php if ($badge_icon || $badge_label): ?>
+                        <div
+                            class="inline-flex items-center gap-2 mb-3 px-4 py-2 bg-accent/10 border border-accent/30 rounded-full">
+                            <?php if ($badge_icon): ?>
+                                <span class="w-4 h-4" aria-hidden="true"><?php echo $badge_icon; ?></span>
+                            <?php endif; ?>
+                            <?php if ($badge_label): ?>
+                                <span
+                                    class="text-accent uppercase tracking-wide text-sm font-semibold"><?php echo esc_html($badge_label); ?></span>
+                            <?php endif; ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <!-- Heading -->
+                    <?php if ($section_title): ?>
+                        <h2 class="text-2xl md:text-3xl text-primary mb-2"><?php echo esc_html($section_title); ?></h2>
+                    <?php endif; ?>
+
+                    <!-- Description -->
+                    <?php if ($section_desc): ?>
+                        <p class="text-muted-foreground"><?php echo esc_html($section_desc); ?></p>
+                    <?php endif; ?>
+                </div>
+                <!-- <div class="relative swiper mySwiper">
 
                                             <div class="flex gap-8  swiper-wrapper">
                                                 <div class="flex-shrink-0 group cursor-pointer swiper-slide">
@@ -1029,7 +1081,8 @@ $banner_paragraph    = get_field('banner_paragraph');
                                                             <div
                                                                 class="flex items-center justify-between mb-3 min-h-[24px]">
                                                                 <div class="flex gap-1.5"><span data-slot="badge"
-                                                                        class="inline-flex items-center justify-center rounded-md border font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 gap-1 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden [a&amp;]:hover:bg-accent [a&amp;]:hover:text-accent-foreground text-[10px] px-2 py-0.5 bg-gradient-to-r from-accent/20 to-accent/10 border-accent/50 text-accent"><svg
+                                                                        class="inline-flex items-center justify-center rounded-md border font-medium w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 gap-1 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden [a&amp;]:hover:bg-accent [a&amp;]:hover:text-accent-foreground text-[10px] px-2 py-0.5 bg-gradient-to-r from-accent/20 to-accent/10 border-accent/50 text-accent">
+                                                                        <svg
                                                                             xmlns="http://www.w3.org/2000/svg"
                                                                             width="24" height="24" viewBox="0 0 24 24"
                                                                             fill="none" stroke="currentColor"
@@ -2769,8 +2822,132 @@ $banner_paragraph    = get_field('banner_paragraph');
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div> -->
+
+
+
+
+                <?php if (have_rows('premium_brand_slider')): ?>
+                    <div class="swiper mySwiper relative overflow-hidden">
+
+                        <div class="flex gap-8  swiper-wrapper">
+
+                            <?php while (have_rows('premium_brand_slider')):
+                                the_row();
+                                $brand_name = get_sub_field('brand_name');
+                                $brand_category = get_sub_field('brand_category');
+                                $is_featured = get_sub_field('is_featured');
+                                $is_exclusive = get_sub_field('is_exclusive');
+                                $brand_icon = get_sub_field('brand_icon_svg');
+                                ?>
+
+                                <!-- SLIDE -->
+                                <div class="flex-shrink-0 group cursor-pointer swiper-slide">
+
+                                    <!-- CARD -->
+                                    <div class="relative h-full bg-gradient-to-br from-white via-secondary/30 to-secondary/50
+                        border-2 border-accent/20 rounded-xl px-6 py-6
+                        hover:border-accent hover:shadow-[0_12px_32px_rgba(226,164,95,0.15)]
+                        transition-all duration-300 overflow-hidden group">
+
+                                        <!-- Corner borders -->
+                                        <div
+                                            class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-accent/40 rounded-tl-xl">
                                         </div>
-                                        <div class="grid grid-cols-3 gap-6 mt-10 max-w-3xl mx-auto">
+                                        <div
+                                            class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-accent/40 rounded-br-xl">
+                                        </div>
+
+                                        <!-- Hover shimmer -->
+                                        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-accent/5 to-transparent
+                            -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+
+                                        <!-- Overlay -->
+                                        <div
+                                            class="absolute inset-0 opacity-[0.02] group-hover:opacity-[0.04] transition-opacity">
+                                        </div>
+
+                                        <!-- CONTENT -->
+                                        <div class="relative z-10">
+
+                                            <!-- BADGES -->
+                                            <div class="flex items-center justify-between mb-3 min-h-[24px]">
+                                                <div class="flex gap-1.5">
+                                                    <?php if ($is_featured): ?>
+                                                        <span class="inline-flex items-center rounded-md border text-[10px] px-2 py-0.5
+                                             bg-gradient-to-r from-accent/20 to-accent/10
+                                             border-accent/50 text-accent">
+                                                            ⭐ Featured
+                                                        </span>
+                                                    <?php endif; ?>
+
+                                                    <?php if ($is_exclusive): ?>
+                                                        <span class="inline-flex items-center rounded-md border text-[10px] px-2 py-0.5
+                                             bg-gradient-to-r from-primary/20 to-primary/10
+                                             border-primary/50 text-primary">
+                                                            👑 Exclusive
+                                                        </span>
+                                                    <?php endif; ?>
+                                                </div>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="w-4 h-4 text-accent/30 group-hover:text-accent/60 transition-colors"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <circle cx="12" cy="8" r="6"></circle>
+                                                    <path d="m15.477 12.89 1.515 8.526-4.11-2.687-4.11 2.687 1.515-8.526">
+                                                    </path>
+                                                </svg>
+                                            </div>
+
+                                            <!-- ICON + NAME -->
+                                            <div class="text-center mb-3">
+                                                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full
+                                    bg-gradient-to-br from-accent/20 to-accent/5
+                                    border border-accent/30 mb-3
+                                    group-hover:border-accent/60 transition-colors">
+                                                    <?php echo $brand_icon ?: '✨'; ?>
+                                                </div>
+
+                                                <h3 class="text-lg font-semibold text-primary mb-1
+                                   group-hover:text-accent transition-colors">
+                                                    <?php echo esc_html($brand_name); ?>
+                                                </h3>
+                                            </div>
+
+                                            <!-- CATEGORY -->
+                                            <?php if ($brand_category): ?>
+                                                <div class="flex justify-center">
+                                                    <div class="px-3 py-1.5 bg-gradient-to-r from-accent/10 via-accent/5 to-transparent
+                                        border border-accent/20 rounded-full">
+                                                        <p class="text-xs uppercase tracking-wider text-muted-foreground">
+                                                            <?php echo esc_html($brand_category); ?>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            <?php endif; ?>
+
+                                            <!-- Bottom glow -->
+                                            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-px
+                                bg-gradient-to-r from-transparent via-accent/30 to-transparent
+                                opacity-0 group-hover:opacity-100 transition-opacity"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            <?php endwhile; ?>
+
+                        </div>
+                    </div>
+                <?php endif; ?>
+
+
+
+
+
+
+
+                <!-- <div class="grid grid-cols-3 gap-6 mt-10 max-w-3xl mx-auto">
                                             <div
                                                 class="text-center p-4 bg-gradient-to-br from-accent/5 to-transparent rounded-lg border border-accent/10">
                                                 <div class="text-3xl font-bold text-accent mb-1">500+</div>
@@ -2786,23 +2963,43 @@ $banner_paragraph    = get_field('banner_paragraph');
                                                 <div class="text-3xl font-bold text-accent mb-1">100%</div>
                                                 <div class="text-sm text-muted-foreground">Authentic</div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </section>
-                                <div class="bg-gradient-to-b from-white via-[#F3E6E2]/40 to-[#E57F6D]/10 py-8">
-                                    <div class="max-w-5xl mx-auto">
-                                        <div class="flex items-center justify-center gap-4 ">
-                                            <div class="h-px w-16 bg-gradient-to-r from-transparent to-accent/40"></div>
-                                            <div class="flex items-center gap-2">
-                                                <div class="w-1.5 h-1.5 rounded-full bg-accent"></div>
-                                                <div class="w-2 h-2 rounded-full bg-accent animate-pulse"></div>
-                                                <div class="w-1.5 h-1.5 rounded-full bg-accent"></div>
-                                            </div>
-                                            <div class="h-px w-16 bg-gradient-to-l from-transparent to-accent/40"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- <section
+                                        </div> -->
+                <!-- Stats Grid -->
+                <?php if ($stats): ?>
+                    <div class="grid grid-cols-3 gap-6 mt-10 max-w-3xl mx-auto">
+                        <?php foreach ($stats as $stat): ?>
+                            <?php
+                            $stat_number = $stat['stat_number'] ?? '';
+                            $stat_label = $stat['stat_label'] ?? '';
+                            ?>
+                            <div
+                                class="text-center p-4 bg-gradient-to-br from-accent/5 to-transparent rounded-lg border border-accent/10">
+                                <?php if ($stat_number): ?>
+                                    <div class="text-3xl font-bold text-accent mb-1"><?php echo esc_html($stat_number); ?></div>
+                                <?php endif; ?>
+                                <?php if ($stat_label): ?>
+                                    <div class="text-sm text-muted-foreground"><?php echo esc_html($stat_label); ?></div>
+                                <?php endif; ?>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </section>
+        <div class="bg-gradient-to-b from-white via-[#F3E6E2]/40 to-[#E57F6D]/10 py-8">
+            <div class="max-w-5xl mx-auto">
+                <div class="flex items-center justify-center gap-4 ">
+                    <div class="h-px w-16 bg-gradient-to-r from-transparent to-accent/40"></div>
+                    <div class="flex items-center gap-2">
+                        <div class="w-1.5 h-1.5 rounded-full bg-accent"></div>
+                        <div class="w-2 h-2 rounded-full bg-accent animate-pulse"></div>
+                        <div class="w-1.5 h-1.5 rounded-full bg-accent"></div>
+                    </div>
+                    <div class="h-px w-16 bg-gradient-to-l from-transparent to-accent/40"></div>
+                </div>
+            </div>
+        </div>
+        <!-- <section
                                     class="py-16 lg:py-24 bg-gradient-to-b from-[#E57F6D]/20 via-white to-[#E2A45F]/5 overflow-hidden">
                                     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                                         <div class="text-center mb-12">
@@ -3130,16 +3327,15 @@ $banner_paragraph    = get_field('banner_paragraph');
                                     </div>
                                 </section> -->
 
-                                <section
-    class="py-16 lg:py-24 bg-gradient-to-b from-[#E57F6D]/20 via-white to-[#E2A45F]/5 overflow-hidden">
+        <section class="py-16 lg:py-24 bg-gradient-to-b from-[#E57F6D]/20 via-white to-[#E2A45F]/5 overflow-hidden">
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <!-- Header -->
-        <div class="text-center mb-12">
-            <div
-                class="inline-flex items-center gap-2 mb-4 px-5 py-2.5 bg-gradient-to-r from-accent/10 via-accent/15 to-accent/10 border border-accent/30 rounded-full backdrop-blur-sm shadow-[0_4px_20px_rgba(226,164,95,0.15)]">
-                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                <!-- Header -->
+                <div class="text-center mb-12">
+                    <div
+                        class="inline-flex items-center gap-2 mb-4 px-5 py-2.5 bg-gradient-to-r from-accent/10 via-accent/15 to-accent/10 border border-accent/30 rounded-full backdrop-blur-sm shadow-[0_4px_20px_rgba(226,164,95,0.15)]">
+                        <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="lucide lucide-award w-4 h-4 text-accent">
@@ -3148,57 +3344,54 @@ $banner_paragraph    = get_field('banner_paragraph');
                     </path>
                     <circle cx="12" cy="8" r="6"></circle>
                 </svg> -->
-                  <?php if ($icon1 = get_field('featured_icon')) : ?>
-                        <span class="text-accent w-6 h-6"><?php echo $icon1; ?></span>
-                    <?php endif; ?>
+                        <?php if ($icon1 = get_field('featured_icon')): ?>
+                            <span class="text-accent w-6 h-6"><?php echo $icon1; ?></span>
+                        <?php endif; ?>
 
-                <span class="text-accent uppercase tracking-wider text-sm font-semibold">
-                    <?php the_field('featured_label'); ?>
-                </span>
-            </div>
+                        <span class="text-accent uppercase tracking-wider text-sm font-semibold">
+                            <?php the_field('featured_label'); ?>
+                        </span>
+                    </div>
 
-            <h2 class="text-3xl md:text-4xl text-primary mb-3">
-                <?php the_field('featured_heading'); ?>
-            </h2>
+                    <h2 class="text-3xl md:text-4xl text-primary mb-3">
+                        <?php the_field('featured_heading'); ?>
+                    </h2>
 
-            <p class="text-muted-foreground max-w-2xl mx-auto">
-                <?php the_field('featured_description'); ?>
-            </p>
-        </div>
+                    <p class="text-muted-foreground max-w-2xl mx-auto">
+                        <?php the_field('featured_description'); ?>
+                    </p>
+                </div>
 
-        <!-- Publications -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Publications -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-            <?php if (have_rows('featured_publications')): ?>
-                <?php while (have_rows('featured_publications')): the_row(); ?>
+                    <?php if (have_rows('featured_publications')): ?>
+                        <?php while (have_rows('featured_publications')):
+                            the_row(); ?>
 
-                    <a href="<?php the_sub_field('publication_url'); ?>" target="_blank"
-                        rel="noopener noreferrer" class="group">
+                            <a href="<?php the_sub_field('publication_url'); ?>" target="_blank" rel="noopener noreferrer"
+                                class="group">
 
-                        <div
-                            class="bg-white/95 backdrop-blur-sm border border-accent/20 rounded-xl p-6
+                                <div class="bg-white/95 backdrop-blur-sm border border-accent/20 rounded-xl p-6
                             hover:border-accent hover:shadow-[0_16px_48px_rgba(226,164,95,0.2)]
                             transition-all duration-300 h-full relative overflow-hidden">
 
-                            <div
-                                class="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-tertiary/5
+                                    <div class="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-tertiary/5
                                 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            </div>
+                                    </div>
 
-                            <div
-                                class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r
+                                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r
                                 from-transparent via-accent to-transparent
                                 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            </div>
+                                    </div>
 
-                            <div class="relative">
-                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="relative">
+                                        <div class="flex items-center gap-3 mb-4">
 
-                                    <div
-                                        class="w-12 h-12 bg-gradient-to-br from-accent/20 to-accent/10 rounded-lg
+                                            <div class="w-12 h-12 bg-gradient-to-br from-accent/20 to-accent/10 rounded-lg
                                         flex items-center justify-center
                                         group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                                        <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                             class="lucide lucide-award w-6 h-6 text-accent">
@@ -3207,67 +3400,64 @@ $banner_paragraph    = get_field('banner_paragraph');
                                             </path>
                                             <circle cx="12" cy="8" r="6"></circle>
                                         </svg> -->
-                                      <?php echo get_sub_field('publication_icon'); ?>
-                                    </div>
+                                                <?php echo get_sub_field('publication_icon'); ?>
+                                            </div>
 
-                                    <div class="flex-1">
-                                        <h3
-                                            class="font-semibold text-primary group-hover:text-accent transition-colors duration-300">
-                                            <?php the_sub_field('publication_name'); ?>
-                                        </h3>
-                                    </div>
+                                            <div class="flex-1">
+                                                <h3
+                                                    class="font-semibold text-primary group-hover:text-accent transition-colors duration-300">
+                                                    <?php the_sub_field('publication_name'); ?>
+                                                </h3>
+                                            </div>
 
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                        class="lucide lucide-external-link w-5 h-5 text-muted-foreground
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round" class="lucide lucide-external-link w-5 h-5 text-muted-foreground
                                         opacity-0 group-hover:opacity-100
                                         group-hover:translate-x-1 group-hover:-translate-y-1
                                         transition-all duration-300">
-                                        <path d="M15 3h6v6"></path>
-                                        <path d="M10 14 21 3"></path>
-                                        <path
-                                            d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6">
-                                        </path>
-                                    </svg>
+                                                <path d="M15 3h6v6"></path>
+                                                <path d="M10 14 21 3"></path>
+                                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6">
+                                                </path>
+                                            </svg>
 
+                                        </div>
+
+                                        <p class="text-sm text-muted-foreground leading-relaxed">
+                                            <?php the_sub_field('publication_description'); ?>
+                                        </p>
+
+                                        <div
+                                            class="absolute -bottom-2 -right-2 text-8xl text-accent/5 font-serif leading-none select-none">
+                                            "
+                                        </div>
+                                    </div>
                                 </div>
+                            </a>
 
-                                <p class="text-sm text-muted-foreground leading-relaxed">
-                                    <?php the_sub_field('publication_description'); ?>
-                                </p>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
 
-                                <div
-                                    class="absolute -bottom-2 -right-2 text-8xl text-accent/5 font-serif leading-none select-none">
-                                    "
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+                </div>
 
-                <?php endwhile; ?>
-            <?php endif; ?>
-
-        </div>
-
-        <!-- Trust -->
-        <div
-            class="text-center mt-12 p-8 bg-gradient-to-r from-accent/8 via-accent/12 to-accent/8
+                <!-- Trust -->
+                <div class="text-center mt-12 p-8 bg-gradient-to-r from-accent/8 via-accent/12 to-accent/8
             rounded-2xl border border-accent/25 shadow-[0_8px_30px_rgba(226,164,95,0.15)]">
 
-            <p class="text-primary font-semibold text-lg">
-                <?php the_field('trust_text_before_count'); ?>
-                <span class="text-accent font-bold text-2xl">
-                    <?php the_field('trust_count'); ?>+
-                </span>
-                <?php the_field('trust_text_after_count'); ?>
-            </p>
-        </div>
+                    <p class="text-primary font-semibold text-lg">
+                        <?php the_field('trust_text_before_count'); ?>
+                        <span class="text-accent font-bold text-2xl">
+                            <?php the_field('trust_count'); ?>+
+                        </span>
+                        <?php the_field('trust_text_after_count'); ?>
+                    </p>
+                </div>
 
-    </div>
-</section>
+            </div>
+        </section>
 
-                                <!-- <section
+        <!-- <section
                                     class="py-16 lg:py-24 bg-gradient-to-b from-[#E2A45F]/5 via-white to-[#E2A45F]/12 relative overflow-hidden">
                                     <div class="absolute inset-0 opacity-5">
                                         <div class="absolute inset-0">
@@ -3659,41 +3849,44 @@ $banner_paragraph    = get_field('banner_paragraph');
                                         </div>
                                     </div>
                                 </section> -->
-                                <section class="py-16 lg:py-24 bg-gradient-to-b from-[#E2A45F]/5 via-white to-[#E2A45F]/12 relative overflow-hidden">
-<div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section
+            class="py-16 lg:py-24 bg-gradient-to-b from-[#E2A45F]/5 via-white to-[#E2A45F]/12 relative overflow-hidden">
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-<!-- HEADER -->
-<div class="text-center mb-12">
-    <div class="inline-flex items-center gap-2 mb-6 px-6 py-3 bg-gradient-to-r from-accent/10 via-accent/15 to-accent/10 border border-accent/30 rounded-full">
-      <?php if ($icon= get_field('customer_featured_icon')) : ?>
-                        <span class="text-accent w-6 h-6"><?php echo $icon; ?></span>
-                    <?php endif; ?>
-        <span class="text-accent uppercase tracking-wider text-sm font-semibold">
-            <?php the_field('customer_featured_label'); ?>
-        </span>
-    </div>
+                <!-- HEADER -->
+                <div class="text-center mb-12">
+                    <div
+                        class="inline-flex items-center gap-2 mb-6 px-6 py-3 bg-gradient-to-r from-accent/10 via-accent/15 to-accent/10 border border-accent/30 rounded-full">
+                        <?php if ($icon = get_field('customer_featured_icon')): ?>
+                            <span class="text-accent w-6 h-6"><?php echo $icon; ?></span>
+                        <?php endif; ?>
+                        <span class="text-accent uppercase tracking-wider text-sm font-semibold">
+                            <?php the_field('customer_featured_label'); ?>
+                        </span>
+                    </div>
 
-    <h2 class="text-4xl md:text-5xl mb-4">
-        <?php the_field('customer_featured_heading'); ?>
-    </h2>
+                    <h2 class="text-4xl md:text-5xl mb-4">
+                        <?php the_field('customer_featured_heading'); ?>
+                    </h2>
 
-    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-        <?php the_field('customer_featured_description'); ?>
-    </p>
-</div>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        <?php the_field('customer_featured_description'); ?>
+                    </p>
+                </div>
 
-<!-- TESTIMONIALS -->
-<div class="grid md:grid-cols-3 gap-8">
+                <!-- TESTIMONIALS -->
+                <div class="grid md:grid-cols-3 gap-8">
 
-<?php if (have_rows('testimonials')): while (have_rows('testimonials')): the_row(); ?>
-<div>
-<div class="bg-white/95 p-8 rounded-2xl border border-accent/15 hover:border-accent/40 transition-all h-full relative group">
+                    <?php if (have_rows('testimonials')):
+                        while (have_rows('testimonials')):
+                            the_row(); ?>
+                            <div>
+                                <div
+                                    class="bg-white/95 p-8 rounded-2xl border border-accent/15 hover:border-accent/40 transition-all h-full relative group">
 
-<!-- Badge -->
- <?php if (get_sub_field('badge_text')): ?>
-<span
-    data-slot="badge"
-    class="inline-flex items-center justify-center rounded-md px-2 py-0.5
+                                    <!-- Badge -->
+                                    <?php if (get_sub_field('badge_text')): ?>
+                                        <span data-slot="badge" class="inline-flex items-center justify-center rounded-md px-2 py-0.5
            text-xs font-medium w-fit whitespace-nowrap shrink-0
            [&>svg]:size-3 gap-1
            [&>svg]:pointer-events-none
@@ -3703,59 +3896,61 @@ $banner_paragraph    = get_field('banner_paragraph');
            bg-gradient-to-r from-accent to-[#C8915D]
            text-white border-0">
 
-    <?php if (get_sub_field('customer_card_icon')): ?>
-        <span class="[&_svg]:w-3 [&_svg]:h-3 mr-1">
-            <?php echo get_sub_field('customer_card_icon'); ?>
-        </span>
-    <?php endif; ?>
+                                            <?php if (get_sub_field('customer_card_icon')): ?>
+                                                <span class="[&_svg]:w-3 [&_svg]:h-3 mr-1">
+                                                    <?php echo get_sub_field('customer_card_icon'); ?>
+                                                </span>
+                                            <?php endif; ?>
 
-    <?php the_sub_field('badge_text'); ?>
-</span>
-<?php endif; ?>
+                                            <?php the_sub_field('badge_text'); ?>
+                                        </span>
+                                    <?php endif; ?>
 
 
-<!-- Rating -->
-<div class="flex gap-1 mb-4 mt-8">
-<?php
-$rating = get_sub_field('rating');
-for ($i = 1; $i <= 5; $i++):
-?>
-<svg class="w-5 h-5 <?php echo $i <= $rating ? 'text-accent fill-accent' : 'text-gray-300'; ?>" viewBox="0 0 24 24" fill="currentColor">
-<path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/>
-</svg>
-<?php endfor; ?>
-</div>
+                                    <!-- Rating -->
+                                    <div class="flex gap-1 mb-4 mt-8">
+                                        <?php
+                                        $rating = get_sub_field('rating');
+                                        for ($i = 1; $i <= 5; $i++):
+                                            ?>
+                                            <svg class="w-5 h-5 <?php echo $i <= $rating ? 'text-accent fill-accent' : 'text-gray-300'; ?>"
+                                                viewBox="0 0 24 24" fill="currentColor">
+                                                <path
+                                                    d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" />
+                                            </svg>
+                                        <?php endfor; ?>
+                                    </div>
 
-<p class="text-muted-foreground mb-6 leading-relaxed">
-    <?php the_sub_field('testimonial_text'); ?>
-</p>
+                                    <p class="text-muted-foreground mb-6 leading-relaxed">
+                                        <?php the_sub_field('testimonial_text'); ?>
+                                    </p>
 
-<!-- USER -->
-<div class="flex items-center gap-4">
-<?php $img = get_sub_field('user_image'); ?>
-<img src="<?php echo esc_url($img['url']); ?>" class="w-12 h-12 rounded-full object-cover border-2 border-accent/20">
+                                    <!-- USER -->
+                                    <div class="flex items-center gap-4">
+                                        <?php $img = get_sub_field('user_image'); ?>
+                                        <img src="<?php echo esc_url($img['url']); ?>"
+                                            class="w-12 h-12 rounded-full object-cover border-2 border-accent/20">
 
-<div>
-    <div class="flex items-center gap-2">
-        <h4 class="font-semibold"><?php the_sub_field('user_name'); ?></h4>
-        <?php if (get_sub_field('is_verified')): ?>
-            <span class="text-xs text-accent">Verified</span>
-        <?php endif; ?>
-    </div>
-    <p class="text-sm text-muted-foreground"><?php the_sub_field('user_city'); ?></p>
-</div>
-</div>
+                                        <div>
+                                            <div class="flex items-center gap-2">
+                                                <h4 class="font-semibold"><?php the_sub_field('user_name'); ?></h4>
+                                                <?php if (get_sub_field('is_verified')): ?>
+                                                    <span class="text-xs text-accent">Verified</span>
+                                                <?php endif; ?>
+                                            </div>
+                                            <p class="text-sm text-muted-foreground"><?php the_sub_field('user_city'); ?></p>
+                                        </div>
+                                    </div>
 
-</div>
-</div>
-<?php endwhile; endif; ?>
+                                </div>
+                            </div>
+                        <?php endwhile; endif; ?>
 
-</div>
+                </div>
 
-<!-- STATS -->
-<div class="mt-16 text-center">
-    <div
-        class="inline-flex flex-wrap items-center justify-center gap-12
+                <!-- STATS -->
+                <div class="mt-16 text-center">
+                    <div class="inline-flex flex-wrap items-center justify-center gap-12
                px-12 py-8
                bg-gradient-to-r from-white via-accent/5 to-white
                rounded-2xl
@@ -3763,54 +3958,52 @@ for ($i = 1; $i <= 5; $i++):
                border border-accent/20
                backdrop-blur-sm">
 
-        <!-- Average Rating -->
-        <div class="text-center">
-            <p class="text-4xl font-bold text-accent mb-2">
-                <?php the_field('avg_rating'); ?>★
-            </p>
-            <p class="text-sm text-muted-foreground uppercase tracking-wider">
-                Average Rating
-            </p>
-        </div>
+                        <!-- Average Rating -->
+                        <div class="text-center">
+                            <p class="text-4xl font-bold text-accent mb-2">
+                                <?php the_field('avg_rating'); ?>★
+                            </p>
+                            <p class="text-sm text-muted-foreground uppercase tracking-wider">
+                                Average Rating
+                            </p>
+                        </div>
 
-        <!-- Divider -->
-        <div
-            class="w-px h-16 bg-gradient-to-b from-transparent via-accent/30 to-transparent">
-        </div>
+                        <!-- Divider -->
+                        <div class="w-px h-16 bg-gradient-to-b from-transparent via-accent/30 to-transparent">
+                        </div>
 
-        <!-- Happy Customers -->
-        <div class="text-center">
-            <p class="text-4xl font-bold text-accent mb-2">
-                <?php the_field('happy_customers'); ?>+
-            </p>
-            <p class="text-sm text-muted-foreground uppercase tracking-wider">
-                Happy Customers
-            </p>
-        </div>
+                        <!-- Happy Customers -->
+                        <div class="text-center">
+                            <p class="text-4xl font-bold text-accent mb-2">
+                                <?php the_field('happy_customers'); ?>+
+                            </p>
+                            <p class="text-sm text-muted-foreground uppercase tracking-wider">
+                                Happy Customers
+                            </p>
+                        </div>
 
-        <!-- Divider -->
-        <div
-            class="w-px h-16 bg-gradient-to-b from-transparent via-accent/30 to-transparent">
-        </div>
+                        <!-- Divider -->
+                        <div class="w-px h-16 bg-gradient-to-b from-transparent via-accent/30 to-transparent">
+                        </div>
 
-        <!-- Satisfaction Rate -->
-        <div class="text-center">
-            <p class="text-4xl font-bold text-accent mb-2">
-                <?php the_field('satisfaction_rate'); ?>%
-            </p>
-            <p class="text-sm text-muted-foreground uppercase tracking-wider">
-                Satisfaction Rate
-            </p>
-        </div>
+                        <!-- Satisfaction Rate -->
+                        <div class="text-center">
+                            <p class="text-4xl font-bold text-accent mb-2">
+                                <?php the_field('satisfaction_rate'); ?>%
+                            </p>
+                            <p class="text-sm text-muted-foreground uppercase tracking-wider">
+                                Satisfaction Rate
+                            </p>
+                        </div>
 
-    </div>
-</div>
+                    </div>
+                </div>
 
 
-</div>
-</section>
+            </div>
+        </section>
 
-                                <!-- <section
+        <!-- <section
                                     class="py-16 lg:py-24 bg-gradient-to-br from-[#E2A45F]/18 via-[#E57F6D]/20 to-[#F3E6E2]/70">
                                     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                                         <div class="text-center mb-12">
@@ -3933,115 +4126,120 @@ for ($i = 1; $i <= 5; $i++):
                                     </div>
                                 </section> -->
 
-                                <section class="py-16 lg:py-24 bg-gradient-to-br from-[#E2A45F]/18 via-[#E57F6D]/20 to-[#F3E6E2]/70">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section class="py-16 lg:py-24 bg-gradient-to-br from-[#E2A45F]/18 via-[#E57F6D]/20 to-[#F3E6E2]/70">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <!-- Header -->
-        <div class="text-center mb-12">
-            <div class="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-accent/10 border border-accent/30 rounded-full">
-                <?php echo get_field('trusted_badge_icon'); ?>
-                <span class="text-accent uppercase tracking-wide text-sm font-semibold">
-                    <?php the_field('trusted_badge_text'); ?>
-                </span>
-            </div>
-
-            <h2 class="text-4xl md:text-5xl mb-4 text-primary">
-                <?php the_field('trusted_heading'); ?>
-            </h2>
-
-            <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                <?php the_field('trusted_description'); ?>
-            </p>
-        </div>
-
-        <!-- Stats Grid -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-
-    <?php if (have_rows('trusted_stats')): ?>
-        <?php while (have_rows('trusted_stats')): the_row(); ?>
-
-            <div class="relative group">
-                <div
-                    class="bg-white p-6 rounded-2xl border border-accent/20
-                           hover:border-accent/40 transition-all
-                           shadow-lg hover:shadow-xl h-full">
-
-                    <!-- Icon -->
+                <!-- Header -->
+                <div class="text-center mb-12">
                     <div
-                        class="w-12 h-12 bg-gradient-to-br from-accent to-[#C8915D]
-                               rounded-xl flex items-center justify-center
-                               text-white mb-4 group-hover:scale-110
-                               transition-transform shadow-lg">
-                        <?php echo get_sub_field('stat_icon_svg'); ?>
-                    </div>
-
-                    <!-- Value -->
-                    <div class="mb-2">
-                        <span class="text-3xl lg:text-4xl text-primary">
-                            <?php the_sub_field('stat_value'); ?>
+                        class="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-accent/10 border border-accent/30 rounded-full">
+                        <?php echo get_field('trusted_badge_icon'); ?>
+                        <span class="text-accent uppercase tracking-wide text-sm font-semibold">
+                            <?php the_field('trusted_badge_text'); ?>
                         </span>
                     </div>
 
-                    <!-- Label -->
-                    <p class="text-sm text-muted-foreground">
-                        <?php the_sub_field('stat_label'); ?>
-                    </p>
+                    <h2 class="text-4xl md:text-5xl mb-4 text-primary">
+                        <?php the_field('trusted_heading'); ?>
+                    </h2>
 
-                    <!-- Glow -->
-                    <div
-                        class="absolute top-0 right-0 w-20 h-20
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        <?php the_field('trusted_description'); ?>
+                    </p>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+
+                    <?php if (have_rows('trusted_stats')): ?>
+                        <?php while (have_rows('trusted_stats')):
+                            the_row(); ?>
+
+                            <div class="relative group">
+                                <div class="bg-white p-6 rounded-2xl border border-accent/20
+                           hover:border-accent/40 transition-all
+                           shadow-lg hover:shadow-xl h-full">
+
+                                    <!-- Icon -->
+                                    <div class="w-12 h-12 bg-gradient-to-br from-accent to-[#C8915D]
+                               rounded-xl flex items-center justify-center
+                               text-white mb-4 group-hover:scale-110
+                               transition-transform shadow-lg">
+                                        <?php echo get_sub_field('stat_icon_svg'); ?>
+                                    </div>
+
+                                    <!-- Value -->
+                                    <div class="mb-2">
+                                        <span class="text-3xl lg:text-4xl text-primary">
+                                            <?php the_sub_field('stat_value'); ?>
+                                        </span>
+                                    </div>
+
+                                    <!-- Label -->
+                                    <p class="text-sm text-muted-foreground">
+                                        <?php the_sub_field('stat_label'); ?>
+                                    </p>
+
+                                    <!-- Glow -->
+                                    <div class="absolute top-0 right-0 w-20 h-20
                                bg-gradient-to-br from-accent to-[#C8915D]
                                opacity-5 rounded-full blur-xl
                                group-hover:opacity-10 transition-opacity">
-                    </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        <?php endwhile; ?>
+                    <?php endif; ?>
 
                 </div>
+
+
             </div>
+        </section>
 
-        <?php endwhile; ?>
-    <?php endif; ?>
+        <section
+            class="py-16 lg:py-24 bg-gradient-to-br from-primary via-primary to-[#5A2C3B] text-white relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute inset-0">
+                </div>
+            </div>
+            <div class="absolute top-20 left-20 w-32 h-32 bg-accent/10 rounded-full blur-3xl">
+            </div>
+            <div class="absolute bottom-10 right-20 w-40 h-40 bg-tertiary/10 rounded-full blur-3xl">
+            </div>
+            <div class="absolute top-1/3 right-1/4 w-24 h-24 bg-white/5 rounded-full blur-2xl">
+            </div>
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-8 items-center">
+                    <div>
 
-</div>
-
-
-    </div>
-</section>
-
-                                <!-- <section
-                                    class="py-16 lg:py-24 bg-gradient-to-br from-primary via-primary to-[#5A2C3B] text-white relative overflow-hidden">
-                                    <div class="absolute inset-0 opacity-10">
-                                        <div class="absolute inset-0">
-                                        </div>
-                                    </div>
-                                    <div class="absolute top-20 left-20 w-32 h-32 bg-accent/10 rounded-full blur-3xl">
-                                    </div>
-                                    <div
-                                        class="absolute bottom-10 right-20 w-40 h-40 bg-tertiary/10 rounded-full blur-3xl">
-                                    </div>
-                                    <div class="absolute top-1/3 right-1/4 w-24 h-24 bg-white/5 rounded-full blur-2xl">
-                                    </div>
-                                    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                                        <div class="grid lg:grid-cols-2 gap-8 items-center">
-                                            <div>
-                                                <div
-                                                    class="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-accent/30 backdrop-blur-sm border border-accent rounded-full">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        <div
+                            class="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-accent/30 backdrop-blur-sm border border-accent rounded-full">
+                            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                                         class="lucide lucide-smartphone w-4 h-4" aria-hidden="true">
                                                         <rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect>
                                                         <path d="M12 18h.01"></path>
-                                                    </svg><span>Download Our App</span>
-                                                </div>
-                                                <h2 class="text-3xl md:text-4xl mb-3">Shop India's Finest Luxury Brands
-                                                </h2>
-                                                <p class="text-white/90 mb-4">All our signature services available at
-                                                    your fingertips—download now to access India's most innovative
-                                                    luxury fashion platform.</p>
-                                                <div class="flex flex-col gap-4">
-                                                    <div class="flex flex-col sm:flex-row gap-3"><button
+                                                    </svg><span>Download Our App</span> -->
+
+                            <!-- <?php echo get_field('download_app_badge_icon'); ?> -->
+
+
+
+
+                        </div>
+                        <h2 class="text-3xl md:text-4xl mb-3"><?php the_field('download_app_heading'); ?>
+                        </h2>
+                        <p class="text-white/90 mb-4"><?php the_field('download_app_description'); ?></p>
+                        <div class="flex flex-col gap-4">
+                            <!-- <div class="flex flex-col sm:flex-row gap-3">
+                                                        <button
                                                             data-slot="button"
-                                                            class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium duration-200 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-5 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:scale-105 active:scale-100 shadow-[0_8px_24px_rgba(0,0,0,0.12)] px-10 py-4 bg-primary hover:bg-primary/90 text-white group h-14 border border-accent/20 hover:border-accent/40 hover:shadow-[0_8px_24px_rgba(226,164,95,0.3)] transition-all"><svg
+                                                            class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium duration-200 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-5 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:scale-105 active:scale-100 shadow-[0_8px_24px_rgba(0,0,0,0.12)] px-10 py-4 bg-primary hover:bg-primary/90 text-white group h-14 border border-accent/20 hover:border-accent/40 hover:shadow-[0_8px_24px_rgba(226,164,95,0.3)] transition-all">
+                                                            <svg
                                                                 xmlns="http://www.w3.org/2000/svg" width="24"
                                                                 height="24" viewBox="0 0 24 24" fill="none"
                                                                 stroke="currentColor" stroke-width="2"
@@ -4059,8 +4257,10 @@ for ($i = 1; $i <= 5; $i++):
                                                                 <div class="text-base font-semibold leading-tight">App
                                                                     Store</div>
                                                             </div>
-                                                        </button><button data-slot="button"
-                                                            class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium duration-200 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-5 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:scale-105 active:scale-100 shadow-[0_8px_24px_rgba(0,0,0,0.12)] px-10 py-4 bg-primary hover:bg-primary/90 text-white group h-14 border border-accent/20 hover:border-accent/40 hover:shadow-[0_8px_24px_rgba(226,164,95,0.3)] transition-all"><svg
+                                                        </button>
+                                                        <button data-slot="button"
+                                                            class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium duration-200 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-5 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:scale-105 active:scale-100 shadow-[0_8px_24px_rgba(0,0,0,0.12)] px-10 py-4 bg-primary hover:bg-primary/90 text-white group h-14 border border-accent/20 hover:border-accent/40 hover:shadow-[0_8px_24px_rgba(226,164,95,0.3)] transition-all">
+                                                            <svg
                                                                 class="w-6 h-6 mr-3" viewBox="0 0 24 24"
                                                                 fill="currentColor">
                                                                 <path
@@ -4073,8 +4273,57 @@ for ($i = 1; $i <= 5; $i++):
                                                                 <div class="text-base font-semibold leading-tight">
                                                                     Google Play</div>
                                                             </div>
-                                                        </button></div>
-                                                    <div
+                                                        </button>
+                                                    </div> -->
+                            <div class="flex flex-col sm:flex-row gap-3">
+
+                                <?php if (have_rows('store_buttons')): ?>
+                                    <?php while (have_rows('store_buttons')):
+                                        the_row();
+                                        $url = get_sub_field('button_url');
+                                        $icon = get_sub_field('button_icon');
+                                        $smallText = get_sub_field('small_text');
+                                        $bigText = get_sub_field('big_text');
+                                        ?>
+
+                                        <?php if ($url): ?>
+                                            <a href="<?php echo esc_url($url); ?>" target="_blank" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full
+                  text-sm font-medium duration-200
+                  hover:scale-105 active:scale-100
+                  shadow-[0_8px_24px_rgba(0,0,0,0.12)]
+                  px-10 py-4 bg-primary hover:bg-primary/90 text-white
+                  h-14 border border-accent/20 hover:border-accent/40
+                  hover:shadow-[0_8px_24px_rgba(226,164,95,0.3)]
+                  transition-all">
+
+                                                <?php if ($icon): ?>
+                                                    <span class="w-6 h-6 mr-3">
+                                                        <?php echo $icon; ?>
+                                                    </span>
+                                                <?php endif; ?>
+
+                                                <div class="text-left">
+                                                    <?php if ($smallText): ?>
+                                                        <div class="text-xs opacity-90 leading-none">
+                                                            <?php echo esc_html($smallText); ?>
+                                                        </div>
+                                                    <?php endif; ?>
+
+                                                    <?php if ($bigText): ?>
+                                                        <div class="text-base font-semibold leading-tight">
+                                                            <?php echo esc_html($bigText); ?>
+                                                        </div>
+                                                    <?php endif; ?>
+                                                </div>
+                                            </a>
+                                        <?php endif; ?>
+
+                                    <?php endwhile; ?>
+                                <?php endif; ?>
+
+                            </div>
+
+                            <!-- <div
                                                         class="flex items-center gap-4 p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
                                                         <div class="relative ">
                                                             <div
@@ -4116,11 +4365,95 @@ for ($i = 1; $i <= 5; $i++):
                                                             <p class="text-xs opacity-70">Scan with your phone camera
                                                             </p>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                 <div
+                                                    </div> -->
+                            <?php
+                            $qr_url = get_field('qr_data_url');          // QR code link
+                            $qr_alt = get_field('qr_alt_text');          // Alt text for the QR
+                            $qr_label = get_field('qr_label_text');        // Label under QR
+                            $qr_icon = get_field('qr_icon_svg');          // Optional icon SVG
+                            $qr_title = get_field('qr_title');             // Title text
+                            $qr_desc = get_field('qr_description');       // Description text
+                            
+                            // Fallbacks if empty
+                            $qr_url = $qr_url ?: 'https://sevora.app/download';
+                            $qr_alt = $qr_alt ?: 'Scan to download app';
+                            $qr_label = $qr_label ?: 'Scan to Download';
+                            ?>
+
+                            <div
+                                class="flex items-center gap-4 p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+
+                                <!-- QR Wrapper -->
+                                <div class="relative">
+                                    <div
+                                        class="bg-white p-4 rounded-2xl shadow-xl border-2 border-accent/20 inline-block">
+
+                                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=<?php echo urlencode($qr_url); ?>&bgcolor=F3E6E2&color=4A1C2B"
+                                            alt="<?php echo esc_attr($qr_alt); ?>" width="80" height="80"
+                                            class="w-full h-full">
+
+                                        <?php if ($qr_label || $qr_icon): ?>
+                                            <div
+                                                class="flex items-center justify-center gap-2 mt-3 pt-3 border-t border-accent/10">
+
+                                                <?php if ($qr_icon): ?>
+                                                    <span class="w-4 h-4 text-accent">
+                                                        <?php echo $qr_icon; ?>
+                                                    </span>
+                                                <?php else: ?>
+                                                    <!-- Default smartphone icon -->
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                        stroke-linecap="round" stroke-linejoin="round"
+                                                        class="lucide lucide-smartphone w-4 h-4 text-accent" aria-hidden="true">
+                                                        <rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect>
+                                                        <path d="M12 18h.01"></path>
+                                                    </svg>
+                                                <?php endif; ?>
+
+                                                <?php if ($qr_label): ?>
+                                                    <span
+                                                        class="text-xs text-primary font-semibold"><?php echo esc_html($qr_label); ?></span>
+                                                <?php endif; ?>
+
+                                            </div>
+                                        <?php endif; ?>
+
+                                    </div>
+
+                                    <!-- Decorative corners -->
+                                    <div
+                                        class="absolute -top-2 -left-2 w-4 h-4 border-t-2 border-l-2 border-accent rounded-tl-lg">
+                                    </div>
+                                    <div
+                                        class="absolute -top-2 -right-2 w-4 h-4 border-t-2 border-r-2 border-accent rounded-tr-lg">
+                                    </div>
+                                    <div
+                                        class="absolute -bottom-2 -left-2 w-4 h-4 border-b-2 border-l-2 border-accent rounded-bl-lg">
+                                    </div>
+                                    <div
+                                        class="absolute -bottom-2 -right-2 w-4 h-4 border-b-2 border-r-2 border-accent rounded-br-lg">
+                                    </div>
+                                </div>
+
+                                <!-- Text content -->
+                                <div>
+                                    <?php if ($qr_title): ?>
+                                        <p class="text-sm font-semibold mb-1"><?php echo esc_html($qr_title); ?></p>
+                                    <?php endif; ?>
+
+                                    <?php if ($qr_desc): ?>
+                                        <p class="text-xs opacity-70"><?php echo esc_html($qr_desc); ?></p>
+                                    <?php endif; ?>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- <div
                                                     class="mt-4 p-3 bg-accent/20 backdrop-blur-sm border border-accent rounded-lg">
-                                                    <div class="flex items-start gap-2.5"><svg
+                                                    <div class="flex items-start gap-2.5">
+                                                        <svg
                                                             xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                             viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                             stroke-width="2" stroke-linecap="round"
@@ -4134,38 +4467,40 @@ for ($i = 1; $i <= 5; $i++):
                                                                 d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5">
                                                             </path>
                                                         </svg>
-                                                        <div>
+                                                         <div>
                                                             <h4 class="mb-1 font-semibold">New User Exclusive</h4>
                                                             <p class="text-white/80 text-sm">₹1,000 off on your first
                                                                 luxury purchase above ₹5,000. Code: <span
                                                                     class="text-accent font-semibold">LUXURY1K</span>
                                                             </p>
-                                                        </div>
+                                                        </div> 
                                                     </div>
-                                                </div> 
-                                            </div>
-                                            <div class="relative lg:block hidden">
-                                                <div class="relative h-[500px] flex items-center justify-center"><img
-                                                        src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;q=80&amp;w=800"
-                                                        alt="SEVORA Mobile App"
-                                                        class="max-h-full w-auto rounded-3xl shadow-2xl">
-                                                     <div
+                                                </div> -->
+                    </div>
+                    <div class="relative lg:block hidden">
+                        <div class="relative h-[500px] flex items-center justify-center">
+                            <?php $img = get_field('download_app_image'); ?>
+                            <?php if ($img): ?>
+                                <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_attr($img['alt']); ?>"
+                                    class="max-h-full w-auto rounded-3xl shadow-2xl">
+                            <?php endif; ?>
+                            <!-- <div
                                                         class="absolute -top-8 -right-8 w-28 h-28 bg-accent rounded-full flex items-center justify-center animate-pulse">
                                                         <div class="text-center">
                                                             <p class="text-2xl text-accent-foreground">10%</p>
                                                             <p class="text-xs text-accent-foreground">OFF</p>
                                                         </div>
-                                                    </div> 
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section> -->
+                                                    </div>  -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                                <section
+        <!--  <section
     class="py-16 lg:py-24 bg-gradient-to-br from-primary via-primary to-[#5A2C3B] text-white relative overflow-hidden">
 
-    <!-- Background glows -->
+    <!-- Background glows 
     <div class="absolute top-20 left-20 w-32 h-32 bg-accent/10 rounded-full blur-3xl"></div>
     <div class="absolute bottom-10 right-20 w-40 h-40 bg-tertiary/10 rounded-full blur-3xl"></div>
     <div class="absolute top-1/3 right-1/4 w-24 h-24 bg-white/5 rounded-full blur-2xl"></div>
@@ -4173,10 +4508,10 @@ for ($i = 1; $i <= 5; $i++):
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-8 items-center">
 
-            <!-- LEFT -->
+            <!-- LEFT 
             <div>
 
-                <!-- Badge -->
+                <!-- Badge 
                 <div
                     class="inline-flex items-center gap-2 mb-4 px-4 py-2
                            bg-accent/30 backdrop-blur-sm
@@ -4189,23 +4524,23 @@ for ($i = 1; $i <= 5; $i++):
                     <?php endif; ?>
 
                     <!-- <span><?php the_field('download_app_badge_text'); ?></span> -->
-                </div>
+    </div>
 
-                <!-- Heading -->
+    <!-- Heading 
                 <h2 class="text-3xl md:text-4xl mb-3">
                     <?php the_field('download_app_heading'); ?>
                 </h2>
 
-                <!-- Description -->
+                <!-- Description 
                 <p class="text-white/90 mb-4">
                     <?php the_field('download_app_description'); ?>
                 </p>
 
-                <!-- Buttons -->
+                <!-- Buttons 
                 <div class="flex flex-col gap-4">
                     <div class="flex flex-col sm:flex-row gap-3">
 
-                        <!-- App Store -->
+                        <!-- App Store 
                         <?php if (get_field('cta_appstore_url')): ?>
                         <a href="<?php the_field('cta_appstore_url'); ?>" target="_blank"
                            class="inline-flex items-center gap-3 px-10 py-4 h-14
@@ -4223,7 +4558,7 @@ for ($i = 1; $i <= 5; $i++):
                         </a>
                         <?php endif; ?>
 
-                        <!-- Play Store -->
+                        <!-- Play Store 
                         <?php if (get_field('cta_playstore_url')): ?>
                         <a href="<?php the_field('cta_playstore_url'); ?>" target="_blank"
                            class="inline-flex items-center gap-3 px-10 py-4 h-14
@@ -4242,7 +4577,7 @@ for ($i = 1; $i <= 5; $i++):
 
                     </div>
 
-                    <!-- QR -->
+                    <!-- QR 
                     <?php if (get_field('cta_qr_url')): ?>
                     <div
                         class="flex items-center gap-4 p-4 bg-white/10
@@ -4264,7 +4599,7 @@ for ($i = 1; $i <= 5; $i++):
                 </div>
             </div>
 
-            <!-- RIGHT IMAGE -->
+            <!-- RIGHT IMAGE 
             <div class="relative lg:block hidden">
                 <?php $img = get_field('download_app_image'); ?>
                 <?php if ($img): ?>
@@ -4276,18 +4611,10 @@ for ($i = 1; $i <= 5; $i++):
 
         </div>
     </div>
-</section>
+</section> -->
 
-                            </div>
-                        </main>
-
-
-
-
-
-
-
+    </div>
+</main>
 <?php
-
 get_footer();
 ?>
