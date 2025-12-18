@@ -22,44 +22,57 @@
                                                 <circle cx="4" cy="20" r="2"></circle>
                                             </svg><span class="text-sm tracking-wide">EXCLUSIVE PERKS</span>
                                         </div> -->
-                                        <?php if (get_field('top-header')) : ?>
+                                        <?php 
+$home_id = get_option('page_on_front');
+
+if ( get_field('top_header', $home_id) ) : 
+?>
     <div class="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 border border-accent/20 rounded-full mb-6">
-        
+
         <!-- SVG stays static -->
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round"
             class="lucide lucide-sparkles w-4 h-4 text-accent" aria-hidden="true">
-            <path
-                d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z">
-            </path>
+            <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path>
             <path d="M20 2v4"></path>
             <path d="M22 4h-4"></path>
             <circle cx="4" cy="20" r="2"></circle>
         </svg>
 
-        <!-- Dynamic text -->
+        <!-- Dynamic text from HOME page -->
         <span class="text-sm tracking-wide">
-            <?php the_field('top-header'); ?>
+            <?php echo get_field('top_header', $home_id); ?>
         </span>
 
     </div>
 <?php endif; ?>
 
+
                                         <!-- <h3 class="text-4xl md:text-5xl mb-4 text-primary">Stay in Style</h3> -->
-                                         <?php if (get_field('title')) : ?>
-        <h3 class="text-4xl md:text-5xl mb-4 text-primary">
-            <?php the_field('title'); ?>
-        </h3>
-    <?php endif; ?>
+                                      <?php 
+$home_id = get_option('page_on_front');
+
+if ( get_field('title', $home_id) ) : 
+?>
+    <h3 class="text-4xl md:text-5xl mb-4 text-primary">
+        <?php echo get_field('title', $home_id); ?>
+    </h3>
+<?php endif; ?>
+
                                         <!-- <p class="text-lg text-primary/80 mb-8 max-w-2xl mx-auto">Join our exclusive
                                             community for insider access to new collections, styling secrets, and
                                             VIP-only offers delivered straight to your inbox.</p> -->
-                                             <?php if (get_field('paragraph')) : ?>
-        <p class="text-lg text-primary/80 mb-8 max-w-2xl mx-auto">
-            <?php the_field('paragraph'); ?>
-        </p>
-    <?php endif; ?>
+                                             <?php 
+$home_id = get_option('page_on_front');
+
+if ( get_field('paragraph', $home_id) ) : 
+?>
+    <p class="text-lg text-primary/80 mb-8 max-w-2xl mx-auto">
+        <?php echo get_field('paragraph', $home_id); ?>
+    </p>
+<?php endif; ?>
+
                                         <div class="max-w-xl mx-auto">
                                             <!-- <div
                                                 class="bg-white rounded-2xl shadow-xl p-2 flex flex-col sm:flex-row gap-2">
@@ -89,10 +102,14 @@
                                                     <div class="w-2 h-2 bg-accent rounded-full"></div><span></span>
                                                 </div>
                                             </div> -->
-                                            <?php if (have_rows('notes')) : ?>
+                                           <?php 
+$home_id = get_option('page_on_front');
+
+if ( have_rows('notes', $home_id) ) : 
+?>
     <div class="flex items-center justify-center gap-6 mt-6 text-sm text-primary/60">
-        
-        <?php while (have_rows('notes')) : the_row(); ?>
+
+        <?php while ( have_rows('notes', $home_id) ) : the_row(); ?>
             <div class="flex items-center gap-2">
                 <div class="w-2 h-2 bg-accent rounded-full"></div>
                 <span><?php the_sub_field('note_text'); ?></span>
@@ -101,6 +118,7 @@
 
     </div>
 <?php endif; ?>
+
 
                                         </div>
                                     </div>
@@ -427,7 +445,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Initialize Swiper
     const swiper = new Swiper(".mySwiper", {
         slidesPerView: 5,
-        spaceBetween: 30,
+        spaceBetween: 10,
         loop: true,
         freeMode: true,
         speed: 4000,
@@ -494,6 +512,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 </script>
+
+
+
                         <?php wp_footer(); ?>
 </body>
 </html>

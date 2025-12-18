@@ -2830,7 +2830,7 @@ get_header();
                 <?php if (have_rows('premium_brand_slider')): ?>
                     <div class="swiper mySwiper relative overflow-hidden">
 
-                        <div class="flex gap-8  swiper-wrapper">
+                        <div class="flex gap-0 swiper-wrapper">
 
                             <?php while (have_rows('premium_brand_slider')):
                                 the_row();

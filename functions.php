@@ -1,13 +1,8 @@
 <?php
-/* =========================================================
-   THEME SUPPORT
-========================================================= */
+
 add_theme_support('post-thumbnails');
 add_theme_support('custom-header');
 
-/* =========================================================
-   REGISTER MENUS
-========================================================= */
 function sevora_register_menus() {
     register_nav_menus([
         'primary-menu' => 'Header Menu',
@@ -20,17 +15,12 @@ function sevora_register_menus() {
 }
 add_action('after_setup_theme', 'sevora_register_menus');
 
-/* =========================================================
-   ENQUEUE STYLES
-========================================================= */
+
 function corporate_enqueue_scripts() {
     wp_enqueue_style('corporate-style', get_stylesheet_uri());
 }
 add_action('wp_enqueue_scripts', 'corporate_enqueue_scripts');
 
-/* =========================================================
-   PRIMARY HEADER MENU LINK CLASSES
-========================================================= */
 function add_menu_link_classes($atts, $item, $args) {
 
     if (isset($args->theme_location) && $args->theme_location === 'primary-menu') {
@@ -48,9 +38,7 @@ function add_menu_link_classes($atts, $item, $args) {
 }
 add_filter('nav_menu_link_attributes', 'add_menu_link_classes', 10, 3);
 
-/* =========================================================
-   FOOTER COLUMN MENU WALKER
-========================================================= */
+
 class Footer_Menu_Walker extends Walker_Nav_Menu {
 
     public function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
@@ -66,9 +54,7 @@ class Footer_Menu_Walker extends Walker_Nav_Menu {
     }
 }
 
-/* =========================================================
-   SUB FOOTER INLINE MENU WALKER (WITH DOT SEPARATOR)
-========================================================= */
+
 class Sub_Footer_Walker extends Walker_Nav_Menu {
 
     private $count = 0;
@@ -92,9 +78,7 @@ class Sub_Footer_Walker extends Walker_Nav_Menu {
     public function end_lvl(&$output, $depth = 0, $args = null) {}
 }
 
-/* =========================================================
-   FOOTER WIDGET AREAS
-========================================================= */
+
 function sevora_register_footer_widgets() {
 
     $footer_widgets = [
