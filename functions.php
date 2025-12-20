@@ -249,3 +249,138 @@ function display_about_app_sections() {
         <?php endwhile;
     endif;
 }
+
+
+//form submission
+
+add_action('admin_menu', function () {
+    add_menu_page(
+        'Contact Submissions',
+        'Contact Submissions',
+        'manage_options',
+        'contact-submissions',
+        'render_contact_submissions_page',
+        'dashicons-email-alt2',
+        25
+    );
+});
+
+add_action('wp_ajax_submit_contact_form', 'handle_contact_form');
+add_action('wp_ajax_nopriv_submit_contact_form', 'handle_contact_form');
+
+function handle_contact_form() {
+
+    check_ajax_referer('contact_form_nonce', 'nonce');
+
+    $entry = [
+        'first_name'   => sanitize_text_field($_POST['first_name']),
+        'last_name'    => sanitize_text_field($_POST['last_name']),
+        'email'        => sanitize_email($_POST['email']),
+        'phone'        => sanitize_text_field($_POST['phone']),
+        'department'   => sanitize_text_field($_POST['department']),
+        'subject'      => sanitize_text_field($_POST['subject']),
+        'message'      => sanitize_textarea_field($_POST['message']),
+        'submitted_at' => current_time('Y-m-d H:i:s'),
+    ];
+
+    $existing = get_field('contact_entries', 'option');
+    if (!$existing) $existing = [];
+
+    $existing[] = $entry;
+
+    update_field('contact_entries', $existing, 'option');
+
+    wp_send_json([
+        'success' => true,
+        'message' => 'Thank you! Your message has been sent.'
+    ]);
+}
+function render_contact_submissions_page() {
+    ?>
+    <div class="wrap">
+        <h1>Contact Submissions</h1>
+
+        <?php
+        $entries = get_field('contact_entries', 'option');
+
+        // Safety check
+        if (!is_array($entries) || empty($entries)) {
+            echo '<p>No contact submissions found.</p>';
+            return;
+        }
+
+        // Show latest first
+        $entries = array_reverse($entries);
+        ?>
+
+        <table class="widefat fixed striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Department</th>
+                    <th>Subject</th>
+                    <th>Message</th>
+                    <th>Submitted At</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($entries as $entry): ?>
+                    <tr>
+                        <td>
+                            <?php echo esc_html(
+                                ($entry['first_name'] ?? '') . ' ' . ($entry['last_name'] ?? '')
+                            ); ?>
+                        </td>
+                        <td><?php echo esc_html($entry['email'] ?? ''); ?></td>
+                        <td><?php echo esc_html($entry['department'] ?? ''); ?></td>
+                        <td><?php echo esc_html($entry['subject'] ?? ''); ?></td>
+                        <td><?php echo esc_html($entry['message'] ?? ''); ?></td>
+                        <td><?php echo esc_html($entry['submitted_at'] ?? ''); ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <?php
+}
+add_action('init', 'handle_contact_form_submission');
+
+function handle_contact_form_submission() {
+
+    if (
+        !isset($_POST['contact_submit']) ||
+        !isset($_POST['contact_nonce']) ||
+        !wp_verify_nonce($_POST['contact_nonce'], 'contact_form_submit')
+    ) {
+        return;
+    }
+
+    $new_entry = [
+        'first_name'   => sanitize_text_field($_POST['first_name'] ?? ''),
+        'last_name'    => sanitize_text_field($_POST['last_name'] ?? ''),
+        'email'        => sanitize_email($_POST['email'] ?? ''),
+        'phone'        => sanitize_text_field($_POST['phone'] ?? ''),
+        'department'   => sanitize_text_field($_POST['department'] ?? ''),
+        'subject'      => sanitize_text_field($_POST['subject'] ?? ''),
+        'message'      => sanitize_textarea_field($_POST['message'] ?? ''),
+        'submitted_at' => current_time('Y-m-d H:i:s'),
+    ];
+
+    // Get existing entries
+    $entries = get_field('contact_entries', 'option');
+
+    if (!is_array($entries)) {
+        $entries = [];
+    }
+
+    // Add new entry
+    $entries[] = $new_entry;
+
+    // Save back to ACF Options Page
+    update_field('contact_entries', $entries, 'option');
+
+    // Prevent resubmission
+    wp_redirect(add_query_arg('submitted', 'true', wp_get_referer()));
+    exit;
+}

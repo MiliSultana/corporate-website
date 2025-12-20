@@ -2211,13 +2211,25 @@ $i++;
             </div>
 
             <!-- Search Input -->
-            <div class="max-w-4xl mx-auto mb-8 relative">
-                <input type="text" class="job-search w-full h-14 px-14 rounded-xl border border-accent/20 shadow-sm placeholder:text-muted-foreground" placeholder="Search by job title, role, department...">
-                <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m21 21-4.34-4.34"></path>
-                    <circle cx="11" cy="11" r="8"></circle>
-                </svg>
-            </div>
+            <div class="max-w-4xl mx-auto mb-8">
+    <div class="relative">
+        <!-- Search Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+             viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             class="lucide lucide-search absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-accent"
+             aria-hidden="true">
+            <path d="m21 21-4.34-4.34"></path>
+            <circle cx="11" cy="11" r="8"></circle>
+        </svg>
+
+        <!-- Input Field -->
+        <input type="text" class="job-search w-full h-14 pl-14 pr-4 rounded-xl border border-accent/20 shadow-sm placeholder:text-muted-foreground focus:border-accent  focus:ring-accent transition-all"
+               placeholder="Search by job title, role, or keywords..." value="">
+    </div>
+</div>
+
+
 
             <!-- Department Filter -->
             <?php 
@@ -2322,36 +2334,51 @@ $i++;
 <?php endif; ?>
 
 <script>
-document.addEventListener('DOMContentLoaded', function(){
-    document.querySelectorAll('.job-search').forEach(searchInput=>{
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.job-search').forEach(searchInput => {
         const jobsContainer = searchInput.closest('section').querySelectorAll('.job-item');
         const filterBtns = searchInput.closest('section').querySelectorAll('[data-filter]');
         const countEl = searchInput.closest('section').querySelector('#jobs-count');
 
-        function updateCount(){
+        function updateCount() {
             let visible = 0;
-            jobsContainer.forEach(job=>{
-                if(job.style.display !== 'none') visible++;
+            jobsContainer.forEach(job => {
+                if (job.style.display !== 'none') visible++;
             });
-            if(countEl) countEl.textContent = visible;
+            if (countEl) countEl.textContent = visible;
         }
 
         // Filter buttons
-        filterBtns.forEach(btn=>{
-            btn.addEventListener('click', ()=>{
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
                 const filter = btn.dataset.filter;
-                jobsContainer.forEach(job=>{
-                    job.style.display = (filter==='all' || job.dataset.department===filter) ? 'block' : 'none';
+                const section = btn.closest('section');
+
+                // Reset all buttons
+                section.querySelectorAll('[data-filter]').forEach(b => {
+                    b.classList.remove('active', 'bg-gradient-to-r', 'from-accent', 'to-[#C8915D]', 'text-white', 'shadow-[0_8px_20px_rgba(226,164,95,0.3)]');
+                    b.classList.add('bg-white', 'border', 'border-accent/20', 'text-foreground');
                 });
+
+                // Set clicked button as active
+                btn.classList.add('active', 'bg-gradient-to-r', 'from-accent', 'to-[#C8915D]', 'text-white', 'shadow-[0_8px_20px_rgba(226,164,95,0.3)]');
+                btn.classList.remove('bg-white', 'border', 'border-accent/20', 'text-foreground');
+
+                // Filter jobs
+                jobsContainer.forEach(job => {
+                    job.style.display = (filter === 'all' || job.dataset.department === filter) ? 'block' : 'none';
+                });
+
+                // Clear search
                 searchInput.value = '';
                 updateCount();
             });
         });
 
         // Search input
-        searchInput.addEventListener('input', ()=>{
+        searchInput.addEventListener('input', () => {
             const query = searchInput.value.toLowerCase();
-            jobsContainer.forEach(job=>{
+            jobsContainer.forEach(job => {
                 const text = job.textContent.toLowerCase();
                 job.style.display = text.includes(query) ? 'block' : 'none';
             });
@@ -2362,7 +2389,8 @@ document.addEventListener('DOMContentLoaded', function(){
 </script>
 
 
-                                <section class="py-20 bg-white">
+
+                                <!-- <section class="py-20 bg-white">
                                     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                                         <div class="text-center mb-16" >
                                             <h2 class="text-4xl md:text-5xl mb-4">Application Process</h2>
@@ -2479,8 +2507,70 @@ document.addEventListener('DOMContentLoaded', function(){
                                             </div>
                                         </div>
                                     </div>
-                                </section>
-                                <section
+                                </section> -->
+
+                                <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <?php if (have_rows('application_process')) : ?>
+            <?php while (have_rows('application_process')) : the_row(); ?>
+
+                <!-- Section Heading -->
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl mb-4">
+                        <?php the_sub_field('section_heading'); ?>
+                    </h2>
+                    <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+                        <?php the_sub_field('section_description'); ?>
+                    </p>
+                </div>
+
+                <?php if (have_rows('steps')) : ?>
+                    <div class="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+
+                        <?php while (have_rows('steps')) : the_row(); ?>
+                            <div class="relative">
+                                <div class="text-center">
+
+                                    <div class="relative inline-block mb-6">
+                                        <div
+                                            class="w-20 h-20 bg-gradient-to-br from-accent to-[#C8915D] rounded-full flex items-center justify-center text-white shadow-xl">
+
+                                            <?php echo get_sub_field('step_icon'); ?>
+
+                                        </div>
+
+                                        <div
+                                            class="absolute -top-2 -right-2 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm">
+                                            <?php the_sub_field('step_number'); ?>
+                                        </div>
+                                    </div>
+
+                                    <h4 class="text-xl mb-3">
+                                        <?php the_sub_field('step_title'); ?>
+                                    </h4>
+
+                                    <p class="text-muted-foreground">
+                                        <?php the_sub_field('step_description'); ?>
+                                    </p>
+                                </div>
+
+                                <div
+                                    class="hidden md:block absolute top-10 left-[60%] w-full h-0.5 bg-gradient-to-r from-accent/50 to-transparent">
+                                </div>
+                            </div>
+                        <?php endwhile; ?>
+
+                    </div>
+                <?php endif; ?>
+
+            <?php endwhile; ?>
+        <?php endif; ?>
+
+    </div>
+</section>
+
+                                <!-- <section
                                     class="py-24 bg-gradient-to-br from-primary via-primary to-[#5A2535] text-white relative overflow-hidden">
                                     <div class="absolute inset-0 opacity-5">
                                         <div class="absolute inset-0"
@@ -2526,7 +2616,69 @@ document.addEventListener('DOMContentLoaded', function(){
                                             </div>
                                         </div>
                                     </div>
-                                </section>
+                                </section> -->
+
+                                <?php if (have_rows('join_us_section')) : ?>
+    <?php while (have_rows('join_us_section')) : the_row(); ?>
+
+        <section
+            class="py-24 bg-gradient-to-br from-primary via-primary to-[#5A2535] text-white relative overflow-hidden">
+
+            <!-- Background Glow -->
+            <div class="absolute inset-0 opacity-5">
+                <div class="absolute inset-0"
+                    style="background-image: radial-gradient(circle at 30% 50%, rgba(226, 164, 95, 0.5) 0%, transparent 50%);">
+                </div>
+            </div>
+
+            <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+                <!-- Badge -->
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-8">
+                    <?php echo get_sub_field('badge_icon'); ?>
+                    <span><?php the_sub_field('badge_text'); ?></span>
+                </div>
+
+                <!-- Heading -->
+                <h2 class="text-4xl md:text-5xl mb-6">
+                    <?php the_sub_field('heading'); ?>
+                </h2>
+
+                <!-- Description -->
+                <p class="text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
+                    <?php the_sub_field('description'); ?>
+                </p>
+
+                <!-- Buttons -->
+                <?php if (have_rows('buttons')) : ?>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+
+                        <?php while (have_rows('buttons')) : the_row(); ?>
+                            <?php
+                            $style = get_sub_field('button_style');
+                            $classes = $style === 'secondary'
+                                ? 'bg-transparent border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 backdrop-blur-sm'
+                                : 'bg-accent text-white hover:bg-accent/90 shadow-xl';
+                            ?>
+
+                            <a href="<?php the_sub_field('button_link'); ?>"
+                                class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full font-medium h-[52px] px-8 py-6 text-lg hover:scale-105 transition-all <?php echo esc_attr($classes); ?>">
+                                <?php echo get_sub_field('button_icon'); ?>
+                                <?php the_sub_field('button_text'); ?>
+                            </a>
+
+                        <?php endwhile; ?>
+
+                    </div>
+                <?php endif; ?>
+
+            </div>
+        </section>
+
+    <?php endwhile; ?>
+<?php endif; ?>
+
                             </div>
                         </main>
 
