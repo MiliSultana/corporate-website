@@ -384,3 +384,13 @@ function handle_contact_form_submission() {
     wp_redirect(add_query_arg('submitted', 'true', wp_get_referer()));
     exit;
 }
+//blog
+function reading_time() {
+    $content = get_post_field('post_content', get_the_ID());
+    $word_count = str_word_count(strip_tags($content));
+    return ceil($word_count / 200) . ' min read';
+}
+
+
+//post type
+add_theme_support('post-formats', ['standard', 'video']);

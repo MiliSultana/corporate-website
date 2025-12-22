@@ -21,7 +21,7 @@ get_header();?>
                                             <ol class="flex items-center gap-2 text-sm">
                                                 <li>
                                                     <a class="flex items-center gap-1 text-muted-foreground hover:text-accent transition-colors"
-                                                        href="/" data-discover="true">
+                                                        href="<?php echo esc_url( home_url('/') ); ?>" data-discover="true">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                             viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                             stroke-width="2" stroke-linecap="round"

@@ -16,7 +16,7 @@ get_header();?>
                                             <ol class="flex items-center gap-2 text-sm">
                                                 <li>
                                                     <a class="flex items-center gap-1 text-muted-foreground hover:text-accent transition-colors"
-                                                        href="/" data-discover="true">
+                                                        href="<?php echo esc_url( home_url('/') ); ?>" data-discover="true">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                             viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                             stroke-width="2" stroke-linecap="round"
@@ -88,7 +88,7 @@ get_header();?>
                                 </section>
                                 <section class="py-12 bg-white border-b border-accent/10">
                                     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                                        <div class="flex justify-center mb-10">
+                                        <!-- <div class="flex justify-center mb-10">
                                             <div
                                                 class="inline-flex items-center gap-2 p-1.5 bg-secondary rounded-full border border-accent/10">
                                                 <button
@@ -135,9 +135,51 @@ get_header();?>
                                                     </svg>
                                                     <span>Videos</span>
                                                 </button>
-                                            </div>
+                                            </div> -->
+                                            <div class="flex justify-center mb-10">
+    <div class="inline-flex items-center gap-2 p-1.5 bg-secondary rounded-full border border-accent/10">
+
+        <!-- ALL -->
+        <button data-filter="all"
+            class="filter-btn active inline-flex items-center gap-2 px-6 py-2.5 rounded-full
+                   bg-gradient-to-r from-accent to-[#E57F6D] text-white shadow-lg transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+                <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path>
+                <path d="M20 2v4"></path>
+                <path d="M22 4h-4"></path>
+                <circle cx="4" cy="20" r="2"></circle>
+            </svg>
+            <span>All Content</span>
+        </button>
+
+        <!-- ARTICLES -->
+        <button data-filter="article"
+            class="filter-btn inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-muted-foreground hover:text-foreground transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+                <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"></path>
+                <path d="M14 2v5a1 1 0 0 0 1 1h5"></path>
+                <path d="M10 9H8"></path>
+                <path d="M16 13H8"></path>
+                <path d="M16 17H8"></path>
+            </svg>
+            <span>Articles</span>
+        </button>
+
+        <!-- VIDEOS -->
+        <button data-filter="video"
+            class="filter-btn inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-muted-foreground hover:text-foreground transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+                <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"></path>
+                <rect x="2" y="6" width="14" height="12" rx="2"></rect>
+            </svg>
+            <span>Videos</span>
+        </button>
+
+    </div>
+</div>
+
                                         </div>
-                                        <div class="max-w-5xl mx-auto">
+                                        <!-- <div class="max-w-5xl mx-auto">
                                             <div class="relative mb-6">
                                                 <div
                                                     class="absolute left-5 top-1/2 -translate-y-1/2 pointer-events-none">
@@ -185,9 +227,66 @@ get_header();?>
                                                 <div class="flex items-center gap-3"><span
                                                         class="text-sm text-muted-foreground">10 results</span></div>
                                             </div>
-                                        </div>
+                                        </div> -->
+                                        <div class="max-w-5xl mx-auto mb-8">
+    <!-- Search -->
+    <div class="relative mb-6">
+        <div class="absolute left-5 top-1/2 -translate-y-1/2 pointer-events-none">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search w-5 h-5 text-accent" aria-hidden="true">
+                <path d="m21 21-4.34-4.34"></path>
+                <circle cx="11" cy="11" r="8"></circle>
+            </svg>
+        </div>
+        <input id="searchInput" type="text" placeholder="Search fashion stories, styling tips, designer insights..." class="w-full px-14 py-3 border border-accent/20 rounded-xl shadow-sm placeholder:text-muted-foreground focus:border-accent focus:ring-2 focus:ring-accent/50">
+    </div>
+
+    <!-- Filters -->
+    <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+        <div class="flex flex-wrap items-center gap-3">
+            <!-- Category -->
+            <div class="flex items-center gap-2">
+                <span class="text-sm text-muted-foreground">Category:</span>
+                <select id="filterCategory" class="px-3 py-2 rounded-lg border bg-secondary border-accent/10 hover:border-accent/30">
+                    <option value="all">All Categories</option>
+                    <?php
+                    $all_categories = get_categories();
+                    foreach ($all_categories as $cat) {
+                        echo '<option value="'.esc_attr($cat->name).'">'.esc_html($cat->name).'</option>';
+                    }
+                    ?>
+                </select>
+            </div>
+
+            <!-- Type -->
+            <div class="flex items-center gap-2">
+                <span class="text-sm text-muted-foreground">Type:</span>
+                <select id="filterType" class="px-3 py-2 rounded-lg border bg-secondary border-accent/10 hover:border-accent/30">
+                    <option value="all">All Types</option>
+                    <option value="article">Article</option>
+                    <option value="video">Video</option>
+                </select>
+            </div>
+
+            <!-- Sort -->
+            <div class="flex items-center gap-2">
+                <span class="text-sm text-muted-foreground">Sort:</span>
+                <select id="sortPosts" class="px-3 py-2 rounded-lg border bg-secondary border-accent/10 hover:border-accent/30">
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                    <option value="alphabetical">A → Z</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Results count -->
+        <div class="flex items-center gap-3">
+            <span id="resultsCount" class="text-sm text-muted-foreground"></span>
+        </div>
+    </div>
+</div>
                                     </div>
-                                </section>
+                                </section> 
+                                
                                 <section class="py-16 bg-gradient-to-b from-[#E2A45F]/8 via-white to-white">
                                     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                                         <div>
@@ -275,10 +374,10 @@ get_header();?>
                                     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                                         <div class="flex items-center justify-between mb-8">
                                             <h2 class="text-3xl">All Content</h2>
-                                            <p class="text-muted-foreground">10 items</p>
+                                            <!-- <p class="text-muted-foreground">10 items</p> -->
                                         </div>
-                                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                            <div>
+                                        <!-- <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"> -->
+                                            <!-- <div>
                                                 <a class="group block h-full" href="/blog/1" data-discover="true">
                                                     <div
                                                         class="bg-white/95 backdrop-blur-sm rounded-2xl overflow-hidden border border-accent/20 hover:border-accent/40 hover:shadow-[0_20px_60px_rgba(226,164,95,0.25)] transition-all duration-300 h-full flex flex-col">
@@ -384,8 +483,166 @@ get_header();?>
                                                         </div>
                                                     </div>
                                                 </a>
-                                            </div>
-                                            <div>
+                                            </div> -->
+
+                             <!-- Posts Grid -->
+<div id="postsGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<?php
+$args = array(
+    'post_type'      => 'post',
+    'posts_per_page' => -1, // get all posts for filtering
+);
+$query = new WP_Query($args);
+if ($query->have_posts()) :
+    while ($query->have_posts()) : $query->the_post();
+
+    $post_format = get_post_format();
+    $is_video = ($post_format === 'video');
+    $categories = get_the_category();
+    $type = $is_video ? 'video' : 'article';
+    $category_names = implode(',', wp_list_pluck($categories, 'name'));
+?>
+    <div class="filter-item" 
+        data-type="<?php echo esc_attr($type); ?>" 
+        data-categories="<?php echo esc_attr($category_names); ?>" 
+        data-date="<?php echo get_the_date('Y-m-d'); ?>" 
+        data-title="<?php the_title(); ?>">
+
+        <a class="group block h-full" href="<?php the_permalink(); ?>">
+            <div class="bg-white/95 backdrop-blur-sm rounded-2xl overflow-hidden border border-accent/20 hover:border-accent/40 hover:shadow-[0_20px_60px_rgba(226,164,95,0.25)] transition-all duration-300 h-full flex flex-col">
+                <!-- Featured Image -->
+                <div class="relative h-56 overflow-hidden">
+                    <?php if (has_post_thumbnail()) : ?>
+                        <?php the_post_thumbnail('large', ['class' => 'w-full h-full object-cover group-hover:scale-110 transition-transform duration-700']); ?>
+                    <?php endif; ?>
+
+                    <!-- Type Badge -->
+                    <div class="absolute top-3 left-3">
+                        <span class="inline-flex items-center gap-1 px-2.5 py-1 bg-primary/90 backdrop-blur-sm rounded-full text-xs text-white">
+                            <?php echo $is_video ? 'Video' : 'Article'; ?>
+                        </span>
+                    </div>
+
+                    <!-- Category Badge -->
+                    <?php if (!empty($categories)) : ?>
+                        <div class="absolute top-3 right-3 flex gap-2 flex-wrap">
+                        <?php foreach ($categories as $cat) : ?>
+                            <span class="inline-flex items-center gap-1 px-3 py-1.5 bg-gradient-to-r from-accent/95 via-accent to-accent/95 backdrop-blur-sm rounded-full text-xs text-white">
+                                <?php echo esc_html($cat->name); ?>
+                            </span>
+                        <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+
+                <!-- Content -->
+                <div class="p-5 flex-1 flex flex-col">
+                    <h3 class="text-xl mb-2 group-hover:text-accent transition-colors line-clamp-2"><?php the_title(); ?></h3>
+                    <p class="text-muted-foreground mb-4 line-clamp-2 text-sm flex-1"><?php echo wp_trim_words(get_the_excerpt(), 20); ?></p>
+                    <div class="flex items-center justify-between text-xs text-muted-foreground mb-3">
+                        <div><?php echo get_the_date(); ?></div>
+                        <div><?php echo reading_time(); ?></div>
+                    </div>
+                    <div class="pt-3 border-t border-accent/20 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <div class="w-7 h-7 rounded-full bg-accent/20 flex items-center justify-center text-accent text-xs"><?php echo strtoupper(get_the_author()[0]); ?></div>
+                            <span class="text-xs"><?php the_author(); ?></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+<?php
+    endwhile;
+    wp_reset_postdata();
+endif;
+?>
+</div>
+
+<!-- JS Combined Filter -->
+<script>
+const categorySelect = document.getElementById('filterCategory');
+const typeSelect = document.getElementById('filterType');
+const sortSelect = document.getElementById('sortPosts');
+const searchInput = document.getElementById('searchInput');
+const postsGrid = document.getElementById('postsGrid');
+const resultsCount = document.getElementById('resultsCount');
+let activeButtonFilter = 'all';
+
+// Existing filter buttons
+document.querySelectorAll('.filter-btn').forEach(button => {
+    button.addEventListener('click', function () {
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.classList.remove(
+                'active',
+                'bg-gradient-to-r',
+                'from-accent',
+                'to-[#E57F6D]',
+                'text-white'
+            );
+        });
+        this.classList.add(
+            'active',
+            'bg-gradient-to-r',
+            'from-accent',
+            'to-[#E57F6D]',
+            'text-white'
+        );
+        activeButtonFilter = this.dataset.filter;
+        updatePosts();
+    });
+});
+
+function updatePosts() {
+    const category = categorySelect ? categorySelect.value.toLowerCase() : 'all';
+    const type = typeSelect ? typeSelect.value.toLowerCase() : 'all';
+    const sort = sortSelect ? sortSelect.value : 'newest';
+    const search = searchInput ? searchInput.value.toLowerCase() : '';
+
+    let posts = Array.from(postsGrid.querySelectorAll('.filter-item'));
+
+    posts.forEach(post => {
+        const postCategories = post.dataset.categories.toLowerCase().split(',');
+        const postType = post.dataset.type.toLowerCase();
+        const postTitle = post.dataset.title.toLowerCase();
+
+        const categoryMatch = category === 'all' || postCategories.includes(category);
+        const typeMatch = type === 'all' || postType === type;
+        const searchMatch = search === '' || postTitle.includes(search);
+        const buttonFilterMatch = activeButtonFilter === 'all' || postType === activeButtonFilter;
+
+        post.style.display = (categoryMatch && typeMatch && searchMatch && buttonFilterMatch) ? '' : 'none';
+    });
+
+    // Sort
+    let visiblePosts = posts.filter(p => p.style.display !== 'none');
+    visiblePosts.sort((a, b) => {
+        if (sort === 'newest') return new Date(b.dataset.date) - new Date(a.dataset.date);
+        if (sort === 'oldest') return new Date(a.dataset.date) - new Date(b.dataset.date);
+        if (sort === 'alphabetical') return a.dataset.title.localeCompare(b.dataset.title);
+        return 0;
+    });
+    visiblePosts.forEach(post => postsGrid.appendChild(post));
+
+    // Update results count
+    resultsCount.textContent = visiblePosts.length + ' results';
+}
+
+// Attach change/input events
+[categorySelect, typeSelect, sortSelect, searchInput].forEach(el => {
+    if (el) el.addEventListener('change', updatePosts);
+    if (el) el.addEventListener('input', updatePosts);
+});
+
+// Initialize
+updatePosts();
+</script>
+
+
+
+
+                                            <!-- <div>
                                                 <a class="group block h-full" href="/blog/2" data-discover="true">
                                                     <div
                                                         class="bg-white/95 backdrop-blur-sm rounded-2xl overflow-hidden border border-accent/20 hover:border-accent/40 hover:shadow-[0_20px_60px_rgba(226,164,95,0.25)] transition-all duration-300 h-full flex flex-col">
@@ -1353,7 +1610,7 @@ get_header();?>
                                                         </div>
                                                     </div>
                                                 </a>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </section>
