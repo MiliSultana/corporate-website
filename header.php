@@ -18,11 +18,11 @@
                         <header class="sticky top-0 z-50 bg-primary border-b border-accent/20">
                             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                                 <div class="flex items-center justify-between h-16 lg:h-20">
-                                    <a class="flex items-center space-x-2" href="<?php echo site_url(); ?>"
+                                    <a class="flex items-center space-x-2 " href="<?php echo site_url(); ?>"
                                         data-discover="true">
                                         <?php $logoimg = get_header_image(); ?>
 
-                                        <img src="<?php echo $logoimg; ?>" alt="" class="w-auto h-6 " />
+                                        <img src="<?php echo $logoimg; ?>" alt="" class="w-auto h-5 " />
                                     </a>
                                     <nav class="hidden md:flex items-center space-x-8 ">
                                         <!-- <a class="transition-colors hover:text-accent text-accent" href="index.html"

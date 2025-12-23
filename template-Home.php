@@ -84,11 +84,11 @@ get_header();
                 <div class="max-w-3xl">
 
                     <!-- Top Header Badge -->
-                    <?php if ($banner_top_header): ?>
+                    <!-- <?php if ($banner_top_header): ?>
                         <div
                             class="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-accent/30 backdrop-blur-sm border border-accent rounded-full">
 
-                            <!-- Static SVG -->
+                            <!-- Static SVG 
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="lucide lucide-sparkles w-4 h-4 text-white" aria-hidden="true">
@@ -104,7 +104,7 @@ get_header();
                                 <?php echo esc_html($banner_top_header); ?>
                             </span>
                         </div>
-                    <?php endif; ?>
+                    <?php endif; ?> -->
 
                     <!-- Dynamic H1 Header -->
                     <?php if ($banner_header): ?>
@@ -115,19 +115,21 @@ get_header();
 
                     <!-- Paragraph -->
                     <?php if ($banner_paragraph): ?>
+                        <i>
                         <p class="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl">
                             <?php echo esc_html($banner_paragraph); ?>
                         </p>
+                        </i>
                     <?php endif; ?>
 
                     <!-- Buttons (static for now) -->
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <button
+                        <a href="https://play.google.com/store/apps/details?id=com.sevora"><button
                             class="inline-flex items-center justify-center gap-2 rounded-full text-sm font-medium shadow-lg h-[52px] bg-accent text-white hover:bg-accent/90 transition-all px-8 py-6 group">
                             Download App Now
-                        </button>
+                        </button></a>
 
-                        <a href="/about">
+                        <a href="/corporate/wordpress/about/">
                             <button
                                 class="inline-flex items-center justify-center rounded-full text-sm font-medium border border-accent text-white h-[52px] px-8 py-6 hover:bg-accent transition-all">
                                 Discover Our Story
@@ -4214,9 +4216,10 @@ get_header();
             <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid lg:grid-cols-2 gap-8 items-center">
                     <div>
+                        
 
-                        <div
-                            class="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-accent/30 backdrop-blur-sm border border-accent rounded-full">
+                        <div>
+                            
                             <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -4225,12 +4228,40 @@ get_header();
                                                         <path d="M12 18h.01"></path>
                                                     </svg><span>Download Our App</span> -->
 
-                            <!-- <?php echo get_field('download_app_badge_icon'); ?> -->
+                             <!-- <?php echo get_field('download_app_badge_icon'); ?>  -->
+                             
+
+<?php
+$icon = get_field('download_app_badge_icon');
+$text = get_field('download_app_badge_text');
+$url  = get_field('download_app_badge_url');
+
+if ( $icon || $text ) :
+?>
+
+<?php if ( $url ) : ?>
+<a href="<?php echo esc_url($url); ?>" target="_blank" rel="noopener noreferrer">
+<?php endif; ?>
+
+    <div class="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-accent/30 backdrop-blur-sm border border-accent rounded-full">
+        <?php if ( $icon ) : ?>
+            <?php echo $icon; ?>
+        <?php endif; ?>
+
+        <?php if ( $text ) : ?>
+            <!-- <span><?php echo esc_html($text); ?></span> -->
+        <?php endif; ?>
+    </div>
+
+<?php if ( $url ) : ?>
+</a>
+<?php endif; ?>
+
+<?php endif; ?>
 
 
 
-
-                        </div>
+                        
                         <h2 class="text-3xl md:text-4xl mb-3"><?php the_field('download_app_heading'); ?>
                         </h2>
                         <p class="text-white/90 mb-4"><?php the_field('download_app_description'); ?></p>

@@ -167,6 +167,8 @@ function display_about_app_sections() {
             $heading = get_sub_field('app_heading');
             $description = get_sub_field('app_description');
             $img = get_sub_field('app_image');
+            $badge_url = get_sub_field('app_badge_url');
+
             ?>
 
             <section class="py-12 lg:py-16 bg-primary text-white relative overflow-hidden">
@@ -174,12 +176,27 @@ function display_about_app_sections() {
                     <div class="grid lg:grid-cols-2 gap-8 items-center">
                         <!-- Left Column -->
                         <div>
-                            <?php if ($badge) : ?>
-                                <div class="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-accent/30 backdrop-blur-sm border border-accent rounded-full">
-                                    <?php if ($badge_icon) echo $badge_icon; ?>
-                                    <span><?php echo esc_html($badge); ?></span>
-                                </div>
-                            <?php endif; ?>
+                            <?php
+
+
+if ( $badge ) :
+?>
+
+<?php if ( $badge_url ) : ?>
+<a href="<?php echo esc_url($badge_url); ?>" target="_blank" rel="noopener noreferrer">
+<?php endif; ?>
+
+    <div class="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-accent/30 backdrop-blur-sm border border-accent rounded-full cursor-pointer">
+        <?php if ( $badge_icon ) echo $badge_icon; ?>
+        <span><?php echo esc_html($badge); ?></span>
+    </div>
+
+<?php if ( $badge_url ) : ?>
+</a>
+<?php endif; ?>
+
+<?php endif; ?>
+
 
                             <?php if ($heading) : ?>
                                 <h2 class="text-3xl md:text-4xl mb-3"><?php echo esc_html($heading); ?></h2>

@@ -230,15 +230,23 @@ get_header();?>
                                         </div> -->
                                         <div class="max-w-5xl mx-auto mb-8">
     <!-- Search -->
-    <div class="relative mb-6">
-        <div class="absolute left-5 top-1/2 -translate-y-1/2 pointer-events-none">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search w-5 h-5 text-accent" aria-hidden="true">
-                <path d="m21 21-4.34-4.34"></path>
-                <circle cx="11" cy="11" r="8"></circle>
-            </svg>
-        </div>
-        <input id="searchInput" type="text" placeholder="Search fashion stories, styling tips, designer insights..." class="w-full px-14 py-3 border border-accent/20 rounded-xl shadow-sm placeholder:text-muted-foreground focus:border-accent focus:ring-2 focus:ring-accent/50">
-    </div>
+   <div class="relative mb-6">
+                                                <div
+                                                    class="absolute left-5 top-1/2 -translate-y-1/2 pointer-events-none">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                        class="lucide lucide-search w-5 h-5 text-accent"
+                                                        aria-hidden="true">
+                                                        <path d="m21 21-4.34-4.34"></path>
+                                                        <circle cx="11" cy="11" r="8"></circle>
+                                                    </svg>
+                                                </div>
+                                                <input type="text" data-slot="input"
+                                                    class="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 flex w-full min-w-0 px-3 py-1 transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive pl-14 pr-12 h-14 bg-white border border-accent/20 focus:border-accent rounded-xl shadow-sm text-base"
+                                                    placeholder="Search fashion stories, styling tips, designer insights..."
+                                                    value="">
+                                            </div>
 
     <!-- Filters -->
     <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
@@ -287,7 +295,7 @@ get_header();?>
                                     </div>
                                 </section> 
                                 
-                                <section class="py-16 bg-gradient-to-b from-[#E2A45F]/8 via-white to-white">
+                                <!-- <section class="py-16 bg-gradient-to-b from-[#E2A45F]/8 via-white to-white">
                                     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                                         <div>
                                             <div
@@ -369,7 +377,110 @@ get_header();?>
                                             </a>
                                         </div>
                                     </div>
-                                </section>
+                                </section> -->
+                                <section class="py-16 bg-gradient-to-b from-[#E2A45F]/8 via-white to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <?php
+        $featured_args = array(
+            'post_type'      => 'post',
+            'posts_per_page' => 1,
+            'post_status'    => 'publish'
+        );
+
+        $featured_query = new WP_Query($featured_args);
+
+        if ($featured_query->have_posts()) :
+            while ($featured_query->have_posts()) : $featured_query->the_post();
+
+            $categories = get_the_category();
+        ?>
+
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 mb-6 px-6 py-3 bg-gradient-to-r from-accent/10 via-accent/15 to-accent/10 border border-accent/30 rounded-full backdrop-blur-sm shadow-[0_4px_20px_rgba(226,164,95,0.15)]">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/>
+            </svg>
+            <span class="text-accent uppercase tracking-wider text-sm font-semibold">
+                Featured Story
+            </span>
+        </div>
+
+        <a class="group block" href="<?php the_permalink(); ?>">
+            <div class="grid lg:grid-cols-2 gap-8 items-center bg-white/95 backdrop-blur-sm rounded-2xl overflow-hidden border-2 border-accent/30 hover:border-accent hover:shadow-[0_20px_60px_rgba(226,164,95,0.3)] transition-all duration-300">
+
+                <!-- Image -->
+                <div class="relative h-80 lg:h-full overflow-hidden">
+                    <?php if (has_post_thumbnail()) : ?>
+                        <?php the_post_thumbnail('large', [
+                            'class' => 'w-full h-full object-cover group-hover:scale-110 transition-transform duration-700'
+                        ]); ?>
+                    <?php endif; ?>
+
+                    <!-- Category -->
+                    <?php if (!empty($categories)) : ?>
+                        <div class="absolute top-4 right-4">
+                            <span class="inline-flex items-center gap-1 px-3 py-1 bg-primary/90 backdrop-blur-sm rounded-full text-sm text-white">
+                                <?php echo esc_html($categories[0]->name); ?>
+                            </span>
+                        </div>
+                    <?php endif; ?>
+                </div>
+
+                <!-- Content -->
+                <div class="p-8 lg:p-12">
+                    <h3 class="text-3xl md:text-4xl mb-4 group-hover:text-accent transition-colors">
+                        <?php the_title(); ?>
+                    </h3>
+
+                    <p class="text-lg text-muted-foreground mb-6">
+                        <?php echo wp_trim_words(get_the_excerpt(), 30); ?>
+                    </p>
+
+                    <!-- Meta -->
+                    <div class="flex items-center gap-4 text-sm text-muted-foreground mb-6">
+                        <div class="flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M8 2v4"/>
+                                <path d="M16 2v4"/>
+                                <rect width="18" height="18" x="3" y="4" rx="2"/>
+                                <path d="M3 10h18"/>
+                            </svg>
+                            <?php echo get_the_date(); ?>
+                        </div>
+
+                        <span>•</span>
+
+                        <div class="flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 6v6l4 2"/>
+                                <circle cx="12" cy="12" r="10"/>
+                            </svg>
+                            <?php echo reading_time(); ?>
+                        </div>
+                    </div>
+
+                    <!-- Author -->
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent font-semibold">
+                            <?php echo strtoupper(get_the_author()[0]); ?>
+                        </div>
+                        <span class="text-foreground">
+                            <?php the_author(); ?>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <?php
+            endwhile;
+            wp_reset_postdata();
+        endif;
+        ?>
+    </div>
+</section>
+
                                 <section class="py-16 lg:py-24 bg-gradient-to-b from-white via-[#F3E6E2]/20 to-white">
                                     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                                         <div class="flex items-center justify-between mb-8">
@@ -486,68 +597,134 @@ get_header();?>
                                             </div> -->
 
                              <!-- Posts Grid -->
+<!-- Posts Grid -->
 <div id="postsGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 <?php
 $args = array(
     'post_type'      => 'post',
-    'posts_per_page' => -1, // get all posts for filtering
+    'posts_per_page' => -1,
 );
+
 $query = new WP_Query($args);
+
 if ($query->have_posts()) :
     while ($query->have_posts()) : $query->the_post();
 
     $post_format = get_post_format();
     $is_video = ($post_format === 'video');
-    $categories = get_the_category();
     $type = $is_video ? 'video' : 'article';
+
+    $categories = get_the_category();
     $category_names = implode(',', wp_list_pluck($categories, 'name'));
 ?>
-    <div class="filter-item" 
-        data-type="<?php echo esc_attr($type); ?>" 
-        data-categories="<?php echo esc_attr($category_names); ?>" 
-        data-date="<?php echo get_the_date('Y-m-d'); ?>" 
+    <div class="filter-item"
+        data-type="<?php echo esc_attr($type); ?>"
+        data-categories="<?php echo esc_attr($category_names); ?>"
+        data-date="<?php echo get_the_date('Y-m-d'); ?>"
         data-title="<?php the_title(); ?>">
 
         <a class="group block h-full" href="<?php the_permalink(); ?>">
-            <div class="bg-white/95 backdrop-blur-sm rounded-2xl overflow-hidden border border-accent/20 hover:border-accent/40 hover:shadow-[0_20px_60px_rgba(226,164,95,0.25)] transition-all duration-300 h-full flex flex-col">
+            <div class="bg-white/95 backdrop-blur-sm rounded-2xl overflow-hidden border border-accent/20
+            group-hover:border-accent/40
+            group-hover:-translate-y-1
+            group-hover:shadow-[0_20px_60px_rgba(226,164,95,0.25)]
+            transition-all duration-300 ease-out
+            h-full flex flex-col">
+
                 <!-- Featured Image -->
                 <div class="relative h-56 overflow-hidden">
                     <?php if (has_post_thumbnail()) : ?>
-                        <?php the_post_thumbnail('large', ['class' => 'w-full h-full object-cover group-hover:scale-110 transition-transform duration-700']); ?>
+                        <?php the_post_thumbnail('large', [
+                            'class' => 'w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110'
+                        ]); ?>
                     <?php endif; ?>
 
                     <!-- Type Badge -->
                     <div class="absolute top-3 left-3">
                         <span class="inline-flex items-center gap-1 px-2.5 py-1 bg-primary/90 backdrop-blur-sm rounded-full text-xs text-white">
-                            <?php echo $is_video ? 'Video' : 'Article'; ?>
+                            <?php if ($is_video) : ?>
+                                <!-- Video SVG -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/>
+                                    <rect x="2" y="6" width="14" height="12" rx="2"/>
+                                </svg>
+                                Video
+                            <?php else : ?>
+                                <!-- Article SVG -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/>
+                                    <path d="M14 2v5a1 1 0 0 0 1 1h5"/>
+                                    <path d="M10 9H8"/>
+                                    <path d="M16 13H8"/>
+                                    <path d="M16 17H8"/>
+                                </svg>
+                                Article
+                            <?php endif; ?>
                         </span>
                     </div>
 
                     <!-- Category Badge -->
                     <?php if (!empty($categories)) : ?>
-                        <div class="absolute top-3 right-3 flex gap-2 flex-wrap">
-                        <?php foreach ($categories as $cat) : ?>
-                            <span class="inline-flex items-center gap-1 px-3 py-1.5 bg-gradient-to-r from-accent/95 via-accent to-accent/95 backdrop-blur-sm rounded-full text-xs text-white">
-                                <?php echo esc_html($cat->name); ?>
+                        <div class="absolute top-3 right-3">
+                            <span class="inline-flex items-center gap-1 px-3 py-1.5 bg-gradient-to-r from-accent/95 via-accent to-accent/95 rounded-full text-xs text-white">
+                                <!-- Tag SVG -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/>
+                                    <circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/>
+                                </svg>
+                                <?php echo esc_html($categories[0]->name); ?>
                             </span>
-                        <?php endforeach; ?>
                         </div>
                     <?php endif; ?>
                 </div>
 
                 <!-- Content -->
                 <div class="p-5 flex-1 flex flex-col">
-                    <h3 class="text-xl mb-2 group-hover:text-accent transition-colors line-clamp-2"><?php the_title(); ?></h3>
-                    <p class="text-muted-foreground mb-4 line-clamp-2 text-sm flex-1"><?php echo wp_trim_words(get_the_excerpt(), 20); ?></p>
+                    <h3 class="text-xl mb-2 group-hover:text-accent transition-colors line-clamp-2">
+                        <?php the_title(); ?>
+                    </h3>
+
+                    <p class="text-muted-foreground mb-4 line-clamp-2 text-sm flex-1">
+                        <?php echo wp_trim_words(get_the_excerpt(), 20); ?>
+                    </p>
+
+                    <!-- Date & Reading Time -->
                     <div class="flex items-center justify-between text-xs text-muted-foreground mb-3">
-                        <div><?php echo get_the_date(); ?></div>
-                        <div><?php echo reading_time(); ?></div>
+                        <div class="flex items-center gap-2">
+                            <!-- Calendar SVG -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M8 2v4"/>
+                                <path d="M16 2v4"/>
+                                <rect width="18" height="18" x="3" y="4" rx="2"/>
+                                <path d="M3 10h18"/>
+                            </svg>
+                            <?php echo get_the_date(); ?>
+                        </div>
+
+                        <div class="flex items-center gap-2">
+                            <!-- Clock SVG -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 6v6l4 2"/>
+                                <circle cx="12" cy="12" r="10"/>
+                            </svg>
+                            <?php echo reading_time(); ?>
+                        </div>
                     </div>
+
+                    <!-- Author + Arrow -->
                     <div class="pt-3 border-t border-accent/20 flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <div class="w-7 h-7 rounded-full bg-accent/20 flex items-center justify-center text-accent text-xs"><?php echo strtoupper(get_the_author()[0]); ?></div>
+                            <div class="w-7 h-7 rounded-full bg-accent/20 flex items-center justify-center text-accent text-xs">
+                                <?php echo strtoupper(get_the_author()[0]); ?>
+                            </div>
                             <span class="text-xs"><?php the_author(); ?></span>
                         </div>
+
+                        <!-- Arrow -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-accent group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14"/>
+                            <path d="m12 5 7 7-7 7"/>
+                        </svg>
                     </div>
                 </div>
             </div>
@@ -559,6 +736,7 @@ if ($query->have_posts()) :
 endif;
 ?>
 </div>
+
 
 <!-- JS Combined Filter -->
 <script>

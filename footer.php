@@ -73,7 +73,7 @@ if ( get_field('paragraph', $home_id) ) :
     </p>
 <?php endif; ?>
 
-                                        <div class="max-w-xl mx-auto">
+                                        <div class="max-w-xl mx-auto" id="footer-newsletter">
                                             <!-- <div
                                                 class="bg-white rounded-2xl shadow-xl p-2 flex flex-col sm:flex-row gap-2">
                                                 <div class="flex-1 relative"><svg xmlns="http://www.w3.org/2000/svg"

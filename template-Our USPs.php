@@ -743,7 +743,7 @@ get_header();?>
                                         <?php endif; ?>
 
                                         <!-- Buttons -->
-                                        <?php if (have_rows('usp_buttons')) : ?>
+                                        <!-- <?php if (have_rows('usp_buttons')) : ?>
     <div class="flex flex-col sm:flex-row gap-3">
 
         <?php while (have_rows('usp_buttons')) : the_row();
@@ -754,7 +754,7 @@ get_header();?>
         ?>
 
             <?php if ($style === 'primary') : ?>
-                <!-- PRIMARY BUTTON -->
+                 PRIMARY BUTTON 
                 <a href="<?php echo esc_url($link['url']); ?>"
                    target="<?php echo esc_attr($link['target'] ?? '_self'); ?>"
                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-all duration-200
@@ -775,7 +775,7 @@ get_header();?>
                 </a>
 
             <?php else : ?>
-                <!-- SECONDARY BUTTON -->
+                <!-- SECONDARY BUTTON 
                 <a href="<?php echo esc_url($link['url']); ?>"
                    target="<?php echo esc_attr($link['target'] ?? '_self'); ?>"
                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-all duration-200
@@ -800,7 +800,7 @@ get_header();?>
         <?php endwhile; ?>
 
     </div>
-<?php endif; ?>
+<?php endif; ?> -->
 
 
                                         <!-- Availability -->

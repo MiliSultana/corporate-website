@@ -7,6 +7,16 @@ Description:corporate website for admin
 */
 /* Default menu links */
 /* Default link */
+
+html {
+    scroll-behavior: smooth;
+}
+
+#footer-newsletter {
+    scroll-margin-top: 0px; /* match your header height */
+}
+
+
 .nav .menu-item > a {
     color: #ffffff;
     transition: color 0.25s ease;
