@@ -1253,7 +1253,8 @@ get_header();?>
                             <?php if (have_rows('table_rows')) : ?>
                                 <?php while (have_rows('table_rows')) : the_row(); ?>
 
-                                    <tr class="border-b border-accent/20 hover:bg-secondary/50 transition-colors">
+                                    <tr 
+                                    class="border-b border-accent/20 hover:bg-secondary/50 transition-colors">
                                         <td class="p-4">
                                             <?php echo esc_html(get_sub_field('service_name')); ?>
                                         </td>
